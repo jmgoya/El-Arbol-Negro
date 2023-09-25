@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://drcvyht7fwne8"]
+
+[ext_resource type="Script" path="res://Arbol/ArbolNegro.gd" id="1_4chgi"]
+
+[node name="ArbolNegro" type="Node"]
+script = ExtResource("1_4chgi")
+
+[node name="Suelo" type="Node" parent="."]
+
+[node name="Tronco" type="Node" parent="."]
+
+[node name="Ramas" type="Node" parent="."]
+
+[node name="Agua" type="Node" parent="."]
+
+[node name="Heroe" type="Node" parent="."]
