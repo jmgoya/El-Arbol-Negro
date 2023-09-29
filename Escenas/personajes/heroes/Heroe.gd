@@ -98,3 +98,8 @@ func decide_animation():
 func _on_animaciones_animation_finished():
 	saltando_estado = false
 	$Animaciones.play("idle")
+
+
+func _on_area_2d_area_entered(area):
+	var nombre = area.get_name()
+	print (nombre)

@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpc6l3r7eimg8"]
+[gd_scene load_steps=6 format=3 uid="uid://dpc6l3r7eimg8"]
 
 [ext_resource type="PackedScene" uid="uid://df8p57lkb2ies" path="res://plataformas/suelo front.tscn" id="3_cwguw"]
 [ext_resource type="PackedScene" uid="uid://bs14l4eqabgop" path="res://Escenas/fondos/parallax_background.tscn" id="3_rvdlh"]
-[ext_resource type="PackedScene" uid="uid://dnocvhr7i1toh" path="res://Escenas/personajes/heroes/HeroeWizard.tscn" id="3_u2q2n"]
 [ext_resource type="PackedScene" uid="uid://daygxiyhhuw7d" path="res://plataformas/escalera.tscn" id="4_mjxce"]
+[ext_resource type="PackedScene" uid="uid://b2s57u23ad5xm" path="res://plataformas/pozo.tscn" id="5_evg63"]
+[ext_resource type="PackedScene" uid="uid://bgxh406ruppky" path="res://Escenas/personajes/heroes/Heroe.tscn" id="5_fm4ye"]
 
 [node name="Arbol" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_rvdlh")]
-
-[node name="HeroeWizard" parent="." instance=ExtResource("3_u2q2n")]
 
 [node name="Suelo" parent="." instance=ExtResource("3_cwguw")]
 position = Vector2(0, 50)
@@ -17,3 +16,8 @@ position = Vector2(0, 50)
 [node name="Plataformas" type="Node2D" parent="."]
 
 [node name="Plataforma1" parent="Plataformas" instance=ExtResource("4_mjxce")]
+
+[node name="pozo" parent="Plataformas" instance=ExtResource("5_evg63")]
+layer_0/tile_data = PackedInt32Array(2359339, 1179648, 0, 2359340, 1245184, 0, 2359341, 1179648, 0, 2359342, 1245184, 0, 2228273, 1179648, 0, 2228274, 1245184, 0, 2555954, 1179648, 0, 2228275, 1179648, 0, 2555955, 1245184, 0, 2228276, 1245184, 0, 2555956, 1179648, 0, 2097205, 1179648, 0, 2162741, 1179648, 1, 2228277, 1179648, 0, 2293813, 1179648, 1, 2359349, 1179648, 0, 2424885, 1179648, 1, 2490421, 1179648, 0, 2555957, 1245184, 0, 2555958, 1179648, 0, 2555959, 1245184, 0, 2555960, 1179648, 0, 2555961, 1245184, 0, 2555962, 1179648, 0, 1900603, 262146, 0, 1966139, 262146, 1, 2031675, 262146, 2, 2097211, 262146, 3, 2162747, 262146, 4, 2228283, 262146, 5, 2293819, 262146, 6, 2359355, 262146, 7, 2424891, 262146, 8, 2490427, 262146, 9, 2555963, 1245184, 0, 1900604, 1179648, 0, 1966140, 1179648, 0, 2031676, 1179648, 0, 2097212, 1179648, 0, 2162748, 1179648, 0, 2228284, 1179648, 0, 2293820, 1179648, 0, 2359356, 1179648, 0, 2424892, 1179648, 0, 2490428, 1179648, 0, 2555964, 1179648, 0)
+
+[node name="Heroe" parent="." instance=ExtResource("5_fm4ye")]
