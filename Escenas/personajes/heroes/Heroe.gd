@@ -1,16 +1,26 @@
 extends CharacterBody2D
 
+
 const SPEED =300.0
 const JUMP_VELOCITY = -500.0
 const correr = 1.5
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var trepar = false
 var correr_estado = 1
 var saltando_estado =  false
 
 func _unhandled_input(event: InputEvent) -> void:
+	#enciende la luz
+	if event.is_action_pressed("ui_cancel"):
+		if $Luz.enabled :
+			$Luz.enabled = false
+		else:
+			$Luz.enabled = true
+		
 	#Correr
 	if event.is_action_pressed("ui_correr"):
 		correr_estado = correr
@@ -18,12 +28,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	# 1 * correr
 	if event.is_action_released("ui_correr"):
 		correr_estado = 1
+	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	var true_speed = SPEED * correr_estado
 	if direction:
 		velocity.x = direction * true_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
+	if trepar:
+		print (trepar)
+		direction = Input.get_axis("ui_up", "ui_down")
+		velocity.y = direction * SPEED / 2
 	
 	# Handle Jump.
 	if Input.is_action_pressed("ui_saltar") and is_on_floor():
@@ -103,3 +118,12 @@ func _on_animaciones_animation_finished():
 func _on_area_2d_area_entered(area):
 	var nombre = area.get_name()
 	print (nombre)
+	if nombre == "soga":
+		trepar = true
+
+
+func _on_area_2d_area_exited(area):
+	var nombre = area.get_name()
+	print (nombre)
+	if nombre == "soga":
+		trepar = false

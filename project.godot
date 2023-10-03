@@ -15,10 +15,11 @@ run/main_scene="res://arbol.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[display]
+[autoload]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+Eventos="*res://autoload/eventos.gd"
+Globales="*res://autoload/globales.gd"
+Tiempo="*res://autoload/tiempo.tscn"
 
 [input]
 
