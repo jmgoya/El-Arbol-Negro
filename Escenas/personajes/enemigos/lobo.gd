@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED =300.0
+const SPEED =30.0
 const JUMP_VELOCITY = -500.0
 const correr = 1.5
 
+#Enum de la acciones que reliza este enemigo
+@export var acccion := Acciones.Patrullar
+enum Acciones { Patrullar, Atacar}
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,12 +16,23 @@ var trepar = false
 var correr_estado = 1
 var saltando_estado =  false
 
+#para el movimiento
+var posicion = Vector2(10,20)
+
+func _ready():
+	velocity.x = SPEED
+	move_and_slide()
 
 
 func _physics_process(delta):
 	#limite muerte caida
 	if position.y >=700:
 		print ("Murió")
+	
+	#patruya
+	if !test_move(Transform2D(0,Vector2(position.x + velocity.x, position.y)), Vector2(0,1)):
+		print ("va a caer")
+		velocity.x = velocity.x * (-1)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -28,9 +42,9 @@ func _physics_process(delta):
 #			$CollisionShape2D.disabled = true
 #		else:
 #			$CollisionShape2D.disabled = false
-	else: 
-		saltando_estado = false
-#
+#	else: 
+#		saltando_estado = false
+	decide_animation()
 	move_and_slide()
 #
 func saltar():
@@ -47,6 +61,7 @@ func decide_animation():
 		return
 		
 	var velocidad = velocity.x
+	
 	match velocidad:
 		0.0:
 			#idle
@@ -56,7 +71,7 @@ func decide_animation():
 			#derecha
 			$Animaciones.flip_h = false
 			if  is_on_floor():
-				$Animaciones.play("caminar")
+				$Animaciones.play("run")
 		SPEED * correr:
 			#correr derecha
 			$Animaciones.flip_h = false
@@ -66,7 +81,7 @@ func decide_animation():
 			#izquierda
 			$Animaciones.flip_h = true
 			if  is_on_floor():
-				$Animaciones.play("caminar")
+				$Animaciones.play("run")
 		-(SPEED * correr):
 			#correr izquierda
 			$Animaciones.flip_h = true

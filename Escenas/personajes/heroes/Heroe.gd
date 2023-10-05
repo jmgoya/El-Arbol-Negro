@@ -36,7 +36,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
 	if trepar:
-		print (trepar)
 		direction = Input.get_axis("ui_up", "ui_down")
 		velocity.y = direction * SPEED / 2
 	

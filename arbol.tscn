@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpc6l3r7eimg8"]
+[gd_scene load_steps=8 format=3 uid="uid://dpc6l3r7eimg8"]
 
 [ext_resource type="Script" path="res://arbol.gd" id="1_bl832"]
 [ext_resource type="PackedScene" uid="uid://df8p57lkb2ies" path="res://plataformas/suelo front.tscn" id="3_a4sbn"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bs14l4eqabgop" path="res://Escenas/fondos/parallax_background.tscn" id="3_rvdlh"]
 [ext_resource type="PackedScene" uid="uid://daygxiyhhuw7d" path="res://plataformas/escalera.tscn" id="5_nyddf"]
 [ext_resource type="PackedScene" uid="uid://b2s57u23ad5xm" path="res://plataformas/pozo.tscn" id="6_guj1n"]
+[ext_resource type="PackedScene" uid="uid://ds40qpvexrlj4" path="res://Escenas/personajes/enemigos/lobo.tscn" id="7_hb6s6"]
 
 [node name="Arbol" type="Node2D"]
 script = ExtResource("1_bl832")
 
 [node name="Heroe" parent="." instance=ExtResource("3_aefpo")]
+position = Vector2(887, 561)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_rvdlh")]
 
@@ -25,3 +27,8 @@ layer_0/tile_data = PackedInt32Array(2162715, 131072, 6, 2162716, 196608, 6, 216
 
 [node name="pozo" parent="Estructuras" instance=ExtResource("6_guj1n")]
 position = Vector2(800, 180)
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="Lobo" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(899, 369)
