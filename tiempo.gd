@@ -1,9 +1,9 @@
 extends Timer
 
-@export var hora: float = 16.0
+@export var hora: float = 8.0
 @export var dia: int = 1
-@export var velocidad_reloj: float = 2.0
-@export var delta_tiempo: float = 0.5
+@export var velocidad_reloj: float = 4.0
+@export var delta_tiempo: float = 0.2
 
 
 

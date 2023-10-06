@@ -1,6 +1,7 @@
-[gd_scene load_steps=80 format=3 uid="uid://bgxh406ruppky"]
+[gd_scene load_steps=81 format=3 uid="uid://bgxh406ruppky"]
 
 [ext_resource type="Script" path="res://Escenas/personajes/heroes/Heroe.gd" id="1_70b0f"]
+[ext_resource type="PackedScene" uid="uid://bp7nlispc4oai" path="res://Escenas/personajes/heroes/disparo_rayo.tscn" id="2_bdf7l"]
 [ext_resource type="Texture2D" uid="uid://r0xdvaiel5aa" path="res://recursos/heroes/Wizard/Attack_2.png" id="2_isri8"]
 [ext_resource type="Texture2D" uid="uid://c8fafka7nbj2g" path="res://recursos/heroes/Wizard/Walk.png" id="4_nvqmh"]
 [ext_resource type="Texture2D" uid="uid://b6p47j6gh2j03" path="res://recursos/heroes/Archer/Hurt.png" id="5_oqoj4"]
@@ -284,9 +285,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f3yo0")
 }],
-"loop": true,
+"loop": false,
 "name": &"ataque1",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -523,6 +524,7 @@ size = Vector2(29, 63)
 
 [node name="Heroe" type="CharacterBody2D"]
 script = ExtResource("1_70b0f")
+disparos = ExtResource("2_bdf7l")
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -32)
@@ -547,10 +549,12 @@ position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_ncv53")
 
 [node name="Luz" parent="." instance=ExtResource("12_uertl")]
-position = Vector2(-4.99999, -26)
-scale = Vector2(0.222656, 0.197266)
-enabled = false
+position = Vector2(-2.5, -20.5)
+scale = Vector2(1e-05, 1e-05)
 color = Color(1, 1, 1, 1)
+
+[node name="spawn_disparo" type="Marker2D" parent="."]
+position = Vector2(35, -12)
 
 [connection signal="animation_finished" from="Animaciones" to="." method="_on_animaciones_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

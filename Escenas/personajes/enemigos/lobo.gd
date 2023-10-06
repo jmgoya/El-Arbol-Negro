@@ -28,10 +28,14 @@ func _physics_process(delta):
 	#limite muerte caida
 	if position.y >=700:
 		print ("Murió")
-	
+	if velocity.x == 0:
+		if $Animaciones.flip_h == false:
+			velocity.x = -SPEED
+		else:
+			velocity.x = SPEED
 	#patruya
-	if !test_move(Transform2D(0,Vector2(position.x + velocity.x, position.y)), Vector2(0,1)):
-		print ("va a caer")
+	if !test_move(Transform2D(0,Vector2(position.x + (velocity.x / 2), position.y)), Vector2(0,1)):
+		#print ("va a caer")
 		velocity.x = velocity.x * (-1)
 	
 	# Add the gravity.
@@ -89,8 +93,6 @@ func decide_animation():
 				$Animaciones.play("run")
 		_:
 			pass
-
-
 
 func _on_animaciones_animation_finished():
 	saltando_estado = false
