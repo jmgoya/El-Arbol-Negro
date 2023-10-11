@@ -11,7 +11,7 @@ enum Acciones { Patrullar, Atacar, muerto}
 
 var estado: int = Acciones.Patrullar
 var posicion_heroe = Vector2 (0,0)
-var velocidad_inicial = randi() % 60 - 30
+var velocidad_inicial
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,6 +24,11 @@ var saltando_estado =  false
 var posicion = Vector2(10,20)
 
 func _ready():
+	var d = randi() % 2 + 1
+	velocidad_inicial = randi() % 40 + 20
+	print (d)
+	if (d > 0):
+		velocidad_inicial = velocidad_inicial * -1
 	velocity.x = velocidad_inicial
 	move_and_slide()
 
@@ -36,9 +41,9 @@ func _physics_process(delta):
 		muere()
 	if velocity.x == 0:
 		if $Animaciones.flip_h == false:
-			velocity.x = -SPEED
+			velocity.x = -velocidad_inicial
 		else:
-			velocity.x = SPEED
+			velocity.x = velocidad_inicial
 	
 	#verifica las acciones
 	if estado == Acciones.Patrullar:
@@ -54,9 +59,14 @@ func _physics_process(delta):
 	decide_animation()
 	move_and_slide()
 
-func atacar(posicion ):
-	print (posicion)
-	pass
+func atacar(posicion):
+	print (posicion.x )
+	print (self.position.x)
+	if posicion.x >= self.position.x + 1 :
+		velocity.x = abs(velocity.x) 
+	else:
+		velocity.x = abs(velocity.x)  * -1
+
 
 func patruyar():
 	#patruya
@@ -119,3 +129,7 @@ func _on_radar_body_entered(body):
 	if body.name == "Heroe":
 		estado = Acciones.Atacar
 		atacar(body.position)
+
+func _on_radar_body_exited(body):
+	if estado != Acciones.muerto:
+		estado= Acciones.Patrullar

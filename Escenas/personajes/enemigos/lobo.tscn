@@ -473,3 +473,4 @@ shape = SubResource("CircleShape2D_nawff")
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="radar" to="." method="_on_radar_body_entered"]
+[connection signal="body_exited" from="radar" to="." method="_on_radar_body_exited"]
