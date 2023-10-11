@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://arbol.gd" id="1_bl832"]
 [ext_resource type="PackedScene" uid="uid://df8p57lkb2ies" path="res://plataformas/suelo front.tscn" id="3_a4sbn"]
-[ext_resource type="PackedScene" path="res://Escenas/personajes/heroes/Heroe.tscn" id="3_aefpo"]
+[ext_resource type="PackedScene" uid="uid://oxhasklia4to" path="res://Escenas/personajes/heroes/Heroe.tscn" id="3_aefpo"]
 [ext_resource type="PackedScene" uid="uid://bs14l4eqabgop" path="res://Escenas/fondos/parallax_background.tscn" id="3_rvdlh"]
 [ext_resource type="PackedScene" uid="uid://daygxiyhhuw7d" path="res://plataformas/escalera.tscn" id="5_nyddf"]
 [ext_resource type="PackedScene" uid="uid://dck3btk2ebcew" path="res://plataformas/pozo_2d.tscn" id="7_cnvuk"]
-[ext_resource type="PackedScene" path="res://Escenas/personajes/enemigos/lobo.tscn" id="7_hb6s6"]
+[ext_resource type="PackedScene" uid="uid://ds40qpvexrlj4" path="res://Escenas/personajes/enemigos/lobo.tscn" id="7_hb6s6"]
 
 [node name="Arbol" type="Node2D"]
 script = ExtResource("1_bl832")

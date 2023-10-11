@@ -10,7 +10,7 @@ const correr = 1.5
 enum Acciones { Patrullar, Atacar, muerto}
 
 var estado: int = Acciones.Patrullar
-
+var posicion_heroe = Vector2 (0,0)
 var velocidad_inicial = randi() % 60 - 30
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -39,30 +39,30 @@ func _physics_process(delta):
 			velocity.x = -SPEED
 		else:
 			velocity.x = SPEED
-	#patruya
-	if !test_move(Transform2D(0,Vector2(position.x + (velocity.x / 2), position.y)), Vector2(0,1)):
-		#print ("va a caer")
-		velocity.x = velocity.x * (-1)
 	
+	#verifica las acciones
+	if estado == Acciones.Patrullar:
+		patruyar()
+	elif estado == Acciones.muerto:
+		pass
+	
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		### que al saltar pueda subir a una plataforma
-#		if (velocity.y < 1):
-#			$CollisionShape2D.disabled = true
-#		else:
-#			$CollisionShape2D.disabled = false
-#	else: 
-#		saltando_estado = false
+	
 	decide_animation()
 	move_and_slide()
-#
-func saltar():
-	if saltando_estado == true:
-		return
-	else:
-		saltando_estado = true
-	$Animaciones.play("salto")
+
+func atacar(posicion ):
+	print (posicion)
+	pass
+
+func patruyar():
+	#patruya
+	if !test_move(Transform2D(0,Vector2(position.x + (velocity.x / 2), position.y)), Vector2(0,1)): 
+		#verifica si va a caer
+		velocity.x = velocity.x * (-1)
 
 #carga las animaciones de acuerdo al movimiento
 func decide_animation():
@@ -89,7 +89,6 @@ func decide_animation():
 
 func _on_animaciones_animation_finished():
 	if $Animaciones.animation == "muerte":
-		print ("animando la muerte")
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2(0,0), 10)
 		tween.tween_callback(self.queue_free)
@@ -97,14 +96,17 @@ func _on_animaciones_animation_finished():
 
 func _on_area_2d_area_entered(area):
 	var nombre = area.get_name()
-	if nombre == "soga":
-		trepar = true
-	elif  nombre == "bala":
+	if nombre == "bala":
 		muere()
+	elif nombre == "Heroe":
+		print ("morder)")
 
 func muere():
 	estado = Acciones.muerto
 	velocity.x = 0
+	$radar/CollisionRadar.queue_free()
+	$Area2D/CollisioArea.queue_free()
+	$CollisionLobo.queue_free()
 	$Animaciones.play("muerte")
 	Eventos.emit_signal("muere_perro")
 
@@ -112,3 +114,8 @@ func _on_area_2d_area_exited(area):
 	var nombre = area.get_name()
 	if nombre == "soga":
 		trepar = false
+
+func _on_radar_body_entered(body):
+	if body.name == "Heroe":
+		estado = Acciones.Atacar
+		atacar(body.position)
