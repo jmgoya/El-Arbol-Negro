@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://7d3n1xxoc2kf"]
+
+[ext_resource type="Texture2D" uid="uid://c48hieb4cwpb3" path="res://recursos/sogas/pngwing.com.png" id="1_dfk2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8qig"]
+size = Vector2(19, 127)
+
+[node name="soga" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(34.5, 64)
+scale = Vector2(1.04545, 1.11613)
+texture = ExtResource("1_dfk2b")
+region_enabled = true
+region_rect = Rect2(61, 1.33334, 22.6667, 155.333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32.5, 38.5)
+shape = SubResource("RectangleShape2D_y8qig")

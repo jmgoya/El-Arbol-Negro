@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnxdas7whxp1p"]
+
+[ext_resource type="Script" path="res://Escenas/personajes/heroes/disparo_rayo.gd" id="1_4of4h"]
+[ext_resource type="Texture2D" uid="uid://bomykal8uxgtn" path="res://recursos/heroes/Wanderer Magican/Charge_2.png" id="1_p0r5m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bxwb"]
+atlas = ExtResource("1_p0r5m")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w830e"]
+atlas = ExtResource("1_p0r5m")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0hoq"]
+atlas = ExtResource("1_p0r5m")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga5q0"]
+atlas = ExtResource("1_p0r5m")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4ec1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bxwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w830e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0hoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga5q0")
+}],
+"loop": true,
+"name": &"disparo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iiup"]
+size = Vector2(30, 9)
+
+[node name="disparo_rayo" type="CharacterBody2D"]
+position = Vector2(289, 162)
+script = ExtResource("1_4of4h")
+
+[node name="bala" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bala"]
+modulate = Color(1, 1, 0, 1)
+sprite_frames = SubResource("SpriteFrames_g4ec1")
+animation = &"disparo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bala"]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_5iiup")
+
+[connection signal="body_entered" from="bala" to="." method="_on_bala_body_entered"]

@@ -1,16 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpc6l3r7eimg8"]
+[gd_scene load_steps=8 format=3 uid="uid://dpc6l3r7eimg8"]
 
-[ext_resource type="PackedScene" uid="uid://cpbo68c3qtnnv" path="res://Escenas/personajes/heroes/HeroeArcher.tscn" id="1_ia517"]
-[ext_resource type="PackedScene" uid="uid://df8p57lkb2ies" path="res://Escenas/tile_map.tscn" id="2_ve5od"]
+[ext_resource type="Script" path="res://arbol.gd" id="1_bl832"]
+[ext_resource type="PackedScene" uid="uid://df8p57lkb2ies" path="res://plataformas/suelo front.tscn" id="3_a4sbn"]
+[ext_resource type="PackedScene" uid="uid://oxhasklia4to" path="res://Escenas/personajes/heroes/Heroe.tscn" id="3_aefpo"]
 [ext_resource type="PackedScene" uid="uid://bs14l4eqabgop" path="res://Escenas/fondos/parallax_background.tscn" id="3_rvdlh"]
+[ext_resource type="PackedScene" uid="uid://daygxiyhhuw7d" path="res://plataformas/escalera.tscn" id="5_nyddf"]
+[ext_resource type="PackedScene" uid="uid://dck3btk2ebcew" path="res://plataformas/pozo_2d.tscn" id="7_cnvuk"]
+[ext_resource type="PackedScene" uid="uid://ds40qpvexrlj4" path="res://Escenas/personajes/enemigos/lobo.tscn" id="7_hb6s6"]
 
 [node name="Arbol" type="Node2D"]
+script = ExtResource("1_bl832")
 
-[node name="Heroe" parent="." instance=ExtResource("1_ia517")]
-position = Vector2(427, 161)
-
-[node name="TileMap" parent="." instance=ExtResource("2_ve5od")]
-position = Vector2(0, 400)
-layer_0/tile_data = PackedInt32Array(786424, 786433, 0, 655363, 786433, 9, 589828, 851969, 8, 655364, 851969, 9, 589829, 917505, 8, 655365, 917505, 9, 655366, 983041, 9, 393227, 1179649, 2, 393228, 1245185, 2, 393229, 1179649, 2, 393230, 1245185, 2, 262163, 1179649, 2, 262164, 1245185, 2, 262165, 1179649, 2, 262166, 1245185, 2, 720919, 851969, 0, 720920, 917505, 0, 720921, 983041, 0, 131098, 1179649, 2, 655386, 786433, 9, 720922, 1048577, 0, 131099, 1245185, 2, 589851, 851969, 8, 655387, 851969, 9, 720923, 1114113, 0, 131100, 1179649, 2, 589852, 917505, 8, 655388, 917505, 9, 720924, 786433, 0, 131101, 1245185, 2, 655389, 983041, 9, 720925, 851969, 0, 131102, 1179649, 2, 720926, 917505, 0, 131103, 1245185, 2, 720927, 983041, 0, 720928, 1048577, 0, 720929, 1114113, 0, 720930, 786433, 0, 262179, 1179649, 2, 720931, 851969, 0, 262180, 1245185, 2, 720932, 917505, 0, 262181, 1179649, 2, 720933, 983041, 0, 262182, 1245185, 2, 720934, 1048577, 0, 720935, 1114113, 0, 720936, 786433, 0, 720937, 786433, 0, 720938, 917505, 0, 720939, 983041, 0, 720940, 1048577, 0, 720941, 1114113, 0, 720942, 786433, 0, 720943, 786433, 0, 720944, 786433, 0, 720945, 786433, 0, 720946, 786433, 0, 720947, 786433, 0, 720948, 786433, 0, 720949, 786433, 0, 720950, 786433, 0, 720951, 786433, 0, 720952, 786433, 0, 720953, 786433, 0, 720954, 786433, 0, 720955, 786433, 0, 720956, 786433, 0, 720957, 786433, 0, 720958, 786433, 0, 720959, 786433, 0, 720960, 786433, 0, 720961, 786433, 0, 720962, 786433, 0, 720963, 786433, 0, 720964, 786433, 0, 720965, 786433, 0, 720966, 786433, 0, 720967, 786433, 0, 720968, 786433, 0, 720969, 786433, 0, 720970, 786433, 0, 720971, 786433, 0, 720972, 786433, 0, 720973, 786433, 0, 720974, 786433, 0, 720975, 786433, 0, 720976, 786433, 0, 720977, 786433, 0, 720978, 786433, 0, 720979, 786433, 0, 720980, 786433, 0, 720981, 786433, 0, 720982, 786433, 0, 720983, 786433, 0, 720984, 786433, 0, 720985, 786433, 0, 720986, 786433, 0, 720987, 786433, 0, 720988, 786433, 0, 720989, 786433, 0, 720990, 786433, 0, 786425, 851969, 0, 786426, 917505, 0, 786427, 983041, 0, 786428, 1048577, 0, 786429, 1114113, 0, 786431, 851969, 0, 720896, 917505, 0, 720897, 983041, 0, 720898, 1048577, 0, 720899, 1114113, 0, 720900, 786433, 0, 720901, 851969, 0, 720902, 917505, 0, 720903, 983041, 0, 720904, 1048577, 0, 720905, 1114113, 0, 720906, 786433, 0, 720907, 851969, 0, 720908, 917505, 0, 720909, 983041, 0, 720910, 1048577, 0, 720911, 1114113, 0, 720912, 786433, 0, 720913, 851969, 0, 720914, 917505, 0, 720915, 983041, 0, 720916, 1048577, 0, 720917, 1114113, 0, 720918, 786433, 0)
+[node name="Heroe" parent="." instance=ExtResource("3_aefpo")]
+position = Vector2(1591, 551)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_rvdlh")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Estructuras" type="Node2D" parent="."]
+
+[node name="Suelo" parent="Estructuras" instance=ExtResource("3_a4sbn")]
+
+[node name="TileMap" parent="Estructuras" instance=ExtResource("5_nyddf")]
+layer_0/tile_data = PackedInt32Array(2162715, 131072, 6, 2162716, 196608, 6, 2162717, 262144, 6, 2162718, 327680, 6, 2162719, 393216, 6, 2162720, 458752, 6, 1900580, 131072, 6, 1900581, 196608, 6, 1900582, 262144, 6, 1900583, 327680, 6, 1900584, 393216, 6, 1900585, 458752, 6, 1703980, 131072, 6, 1703981, 196608, 6, 1703982, 262144, 6, 1703983, 327680, 6, 1703984, 393216, 6, 1703985, 458752, 6, 1507381, 131072, 6, 1507382, 196608, 6, 1507383, 262144, 6, 1507384, 327680, 6, 1507385, 393216, 6, 1507386, 458752, 6)
+
+[node name="Node2D" parent="Estructuras" instance=ExtResource("7_cnvuk")]
+position = Vector2(1424, 178)
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="Lobo" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(828, 494)
+
+[node name="Lobo2" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(481, 526)
+
+[node name="Lobo3" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(227, 584)
+
+[node name="Lobo4" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(640, 580)
+
+[node name="Lobo5" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(628, 462)
+
+[node name="Lobo6" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(753, 415)
+
+[node name="Lobo7" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(1427, 564)
+
+[node name="Lobo8" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(893, 368)
