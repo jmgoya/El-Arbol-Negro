@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp7nlispc4oai"]
+[gd_scene load_steps=9 format=3 uid="uid://bnxdas7whxp1p"]
 
 [ext_resource type="Script" path="res://Escenas/personajes/heroes/disparo_rayo.gd" id="1_4of4h"]
 [ext_resource type="Texture2D" uid="uid://bomykal8uxgtn" path="res://recursos/heroes/Wanderer Magican/Charge_2.png" id="1_p0r5m"]

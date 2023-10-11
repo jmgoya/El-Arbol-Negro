@@ -1,7 +1,7 @@
-[gd_scene load_steps=81 format=3 uid="uid://bgxh406ruppky"]
+[gd_scene load_steps=81 format=3 uid="uid://oxhasklia4to"]
 
 [ext_resource type="Script" path="res://Escenas/personajes/heroes/Heroe.gd" id="1_70b0f"]
-[ext_resource type="PackedScene" uid="uid://bp7nlispc4oai" path="res://Escenas/personajes/heroes/disparo_rayo.tscn" id="2_bdf7l"]
+[ext_resource type="PackedScene" path="res://Escenas/personajes/heroes/disparo_rayo.tscn" id="2_bdf7l"]
 [ext_resource type="Texture2D" uid="uid://r0xdvaiel5aa" path="res://recursos/heroes/Wizard/Attack_2.png" id="2_isri8"]
 [ext_resource type="Texture2D" uid="uid://c8fafka7nbj2g" path="res://recursos/heroes/Wizard/Walk.png" id="4_nvqmh"]
 [ext_resource type="Texture2D" uid="uid://b6p47j6gh2j03" path="res://recursos/heroes/Archer/Hurt.png" id="5_oqoj4"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://clqqnl5g2fcfp" path="res://recursos/heroes/Wizard/Jump.png" id="9_svx7w"]
 [ext_resource type="Texture2D" uid="uid://bthks6plawl2s" path="res://recursos/heroes/Wizard/Attack_1.png" id="10_qyc8u"]
 [ext_resource type="Texture2D" uid="uid://d3bx77ppc3j2x" path="res://recursos/heroes/Wizard/Attack_3.png" id="11_khs61"]
-[ext_resource type="PackedScene" uid="uid://dqpfm4jweelan" path="res://Escenas/personajes/luz.tscn" id="12_uertl"]
+[ext_resource type="PackedScene" path="res://Escenas/personajes/luz.tscn" id="12_uertl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6sqb"]
 atlas = ExtResource("2_isri8")
