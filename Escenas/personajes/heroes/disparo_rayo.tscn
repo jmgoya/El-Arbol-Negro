@@ -46,13 +46,15 @@ size = Vector2(30, 9)
 position = Vector2(289, 162)
 script = ExtResource("1_4of4h")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="bala" type="Area2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bala"]
 modulate = Color(1, 1, 0, 1)
 sprite_frames = SubResource("SpriteFrames_g4ec1")
 animation = &"disparo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bala"]
 position = Vector2(3, -0.5)
 shape = SubResource("RectangleShape2D_5iiup")
+
+[connection signal="body_entered" from="bala" to="." method="_on_bala_body_entered"]

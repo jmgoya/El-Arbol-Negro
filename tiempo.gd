@@ -2,7 +2,7 @@ extends Timer
 
 @export var hora: float = 8.0
 @export var dia: int = 1
-@export var velocidad_reloj: float = 4.0
+@export var velocidad_reloj: float = 1.0
 @export var delta_tiempo: float = 0.2
 
 

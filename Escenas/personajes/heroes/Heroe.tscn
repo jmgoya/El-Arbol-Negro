@@ -287,7 +287,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"ataque1",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -295,7 +295,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"caer",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -321,7 +321,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"caminar",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -416,7 +416,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"run",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -529,7 +529,7 @@ disparos = ExtResource("2_bdf7l")
 [node name="Animaciones" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -32)
 sprite_frames = SubResource("SpriteFrames_2f6o4")
-animation = &"ataque1"
+animation = &"run"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -554,7 +554,7 @@ scale = Vector2(1e-05, 1e-05)
 color = Color(1, 1, 1, 1)
 
 [node name="spawn_disparo" type="Marker2D" parent="."]
-position = Vector2(35, -12)
+position = Vector2(35, 0)
 
 [connection signal="animation_finished" from="Animaciones" to="." method="_on_animaciones_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

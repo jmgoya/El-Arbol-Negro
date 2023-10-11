@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://bgxh406ruppky" path="res://Escenas/personajes/heroes/Heroe.tscn" id="3_aefpo"]
 [ext_resource type="PackedScene" uid="uid://bs14l4eqabgop" path="res://Escenas/fondos/parallax_background.tscn" id="3_rvdlh"]
 [ext_resource type="PackedScene" uid="uid://daygxiyhhuw7d" path="res://plataformas/escalera.tscn" id="5_nyddf"]
-[ext_resource type="PackedScene" uid="uid://b2s57u23ad5xm" path="res://plataformas/pozo.tscn" id="6_guj1n"]
+[ext_resource type="PackedScene" uid="uid://dck3btk2ebcew" path="res://plataformas/pozo_2d.tscn" id="7_cnvuk"]
 [ext_resource type="PackedScene" uid="uid://ds40qpvexrlj4" path="res://Escenas/personajes/enemigos/lobo.tscn" id="7_hb6s6"]
 
 [node name="Arbol" type="Node2D"]
 script = ExtResource("1_bl832")
 
 [node name="Heroe" parent="." instance=ExtResource("3_aefpo")]
-position = Vector2(913, 516)
+position = Vector2(1591, 551)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_rvdlh")]
 
@@ -25,10 +25,31 @@ position = Vector2(913, 516)
 [node name="TileMap" parent="Estructuras" instance=ExtResource("5_nyddf")]
 layer_0/tile_data = PackedInt32Array(2162715, 131072, 6, 2162716, 196608, 6, 2162717, 262144, 6, 2162718, 327680, 6, 2162719, 393216, 6, 2162720, 458752, 6, 1900580, 131072, 6, 1900581, 196608, 6, 1900582, 262144, 6, 1900583, 327680, 6, 1900584, 393216, 6, 1900585, 458752, 6, 1703980, 131072, 6, 1703981, 196608, 6, 1703982, 262144, 6, 1703983, 327680, 6, 1703984, 393216, 6, 1703985, 458752, 6, 1507381, 131072, 6, 1507382, 196608, 6, 1507383, 262144, 6, 1507384, 327680, 6, 1507385, 393216, 6, 1507386, 458752, 6)
 
-[node name="pozo" parent="Estructuras" instance=ExtResource("6_guj1n")]
-position = Vector2(800, 180)
+[node name="Node2D" parent="Estructuras" instance=ExtResource("7_cnvuk")]
+position = Vector2(1424, 178)
 
 [node name="Enemigos" type="Node2D" parent="."]
 
 [node name="Lobo" parent="Enemigos" instance=ExtResource("7_hb6s6")]
-position = Vector2(856, 449)
+position = Vector2(828, 494)
+
+[node name="Lobo2" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(481, 526)
+
+[node name="Lobo3" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(227, 584)
+
+[node name="Lobo4" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(640, 580)
+
+[node name="Lobo5" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(628, 462)
+
+[node name="Lobo6" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(753, 415)
+
+[node name="Lobo7" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(1427, 564)
+
+[node name="Lobo8" parent="Enemigos" instance=ExtResource("7_hb6s6")]
+position = Vector2(893, 368)

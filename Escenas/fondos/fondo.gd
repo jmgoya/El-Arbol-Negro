@@ -7,7 +7,7 @@ func _ready():
 
 
 func cambio_cielo(dia, hora, cielo):
-	var tween = create_tween()
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween.tween_property($CanvasModulate, "color", cielo, 
 		Tiempo.velocidad_reloj * Tiempo.delta_tiempo * 4)
 	#print ("cambio el cielo")

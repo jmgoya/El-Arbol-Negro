@@ -17,8 +17,9 @@ var disparando  =false
 
 func _unhandled_input(event: InputEvent) -> void:
 	
-	if event.is_action_released("ui_disparo"):
-		$Animaciones.play("idle")
+#	if event.is_action_released("ui_disparo"):
+#		$Animaciones.play("idle")
+#		return
 	
 	#enciende la luz
 	if event.is_action_pressed("ui_cancel"):
@@ -63,6 +64,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# print (velocity.x)
 
 func _physics_process(delta):
+	decide_animation()
 	#limite muerte caida
 	if position.y >=700:
 		print ("Murió")
@@ -77,7 +79,6 @@ func _physics_process(delta):
 #			$CollisionShape2D.disabled = false
 	else: 
 		saltando_estado = false
-#
 	move_and_slide()
 #
 func saltar():
@@ -89,10 +90,10 @@ func saltar():
 
 func Disparar():
 	disparando = true
-	print ("Disparando")
 	var bala = disparos.instantiate()
 	bala.global_position = $spawn_disparo.global_position
 	get_parent().add_child(bala)
+	
 	if $Animaciones.flip_h == true:
 		bala.set("direccion",-1)
 	else:
@@ -136,25 +137,21 @@ func decide_animation():
 		_:
 			pass
 
-
-
 func _on_animaciones_animation_finished():
+	
 	if saltando_estado ==  true:
 		saltando_estado = false
-		$Animaciones.play("idle")
 	if disparando ==  true:
 		disparando = false
-		$Animaciones.play("idle")
+	
+	$Animaciones.play("idle")
 
 func _on_area_2d_area_entered(area):
 	var nombre = area.get_name()
-	print (nombre)
 	if "soga" in nombre:
 		trepar = true
 
-
 func _on_area_2d_area_exited(area):
 	var nombre = area.get_name()
-	print (nombre)
 	if "soga" in nombre:
 		trepar = false

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dck3btk2ebcew"]
+
+[ext_resource type="PackedScene" uid="uid://b2s57u23ad5xm" path="res://plataformas/pozo.tscn" id="1_c5njt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="pozo" parent="." instance=ExtResource("1_c5njt")]
