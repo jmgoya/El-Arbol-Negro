@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://cuhc6yad5ydba"]
+
+[ext_resource type="Script" path="res://Escenas/personajes/enemigos/lobo2.gd" id="1_vkhrk"]
+[ext_resource type="Texture2D" uid="uid://c0p1u04urf2o0" path="res://recursos/enemigos/animales/1 Dog/Walk.png" id="7_mf2al"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keyot"]
+atlas = ExtResource("7_mf2al")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cwqm"]
+atlas = ExtResource("7_mf2al")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajxbl"]
+atlas = ExtResource("7_mf2al")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai65a"]
+atlas = ExtResource("7_mf2al")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kft4"]
+atlas = ExtResource("7_mf2al")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgvr8"]
+atlas = ExtResource("7_mf2al")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cr4ba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keyot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cwqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajxbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai65a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kft4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgvr8")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txr5k"]
+radius = 14.0
+height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncv53"]
+size = Vector2(38, 30.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nawff"]
+radius = 141.651
+
+[node name="Lobo2" type="CharacterBody2D"]
+script = ExtResource("1_vkhrk")
+
+[node name="Animaciones" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -23)
+sprite_frames = SubResource("SpriteFrames_cr4ba")
+animation = &"correr"
+autoplay = "correr"
+frame_progress = 0.163781
+
+[node name="CollisionLobo" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -17)
+shape = SubResource("CapsuleShape2D_txr5k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisioArea" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-2, -15.75)
+shape = SubResource("RectangleShape2D_ncv53")
+
+[node name="radar" type="Area2D" parent="."]
+
+[node name="CollisionRadar" type="CollisionShape2D" parent="radar"]
+visible = false
+position = Vector2(-1, -15)
+shape = SubResource("CircleShape2D_nawff")
+
+[node name="RayParedes" type="RayCast2D" parent="."]
+position = Vector2(13, -13)
+target_position = Vector2(17, 0)
+
+[node name="RayPiso" type="RayCast2D" parent="."]
+position = Vector2(27, -9)
+target_position = Vector2(0, 15)

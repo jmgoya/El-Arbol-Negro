@@ -523,6 +523,8 @@ height = 70.0
 size = Vector2(29, 63)
 
 [node name="Heroe" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_70b0f")
 disparos = ExtResource("2_bdf7l")
 
