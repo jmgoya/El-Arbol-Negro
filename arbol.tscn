@@ -33,7 +33,7 @@ position = Vector2(1191, 381)
 position = Vector2(68, -27)
 
 [node name="Lobo2" parent="Enemigos" instance=ExtResource("7_62wv8")]
-position = Vector2(1771, 549)
+position = Vector2(1914, 581)
 
 [node name="Lobo3" parent="Enemigos" instance=ExtResource("7_62wv8")]
 position = Vector2(1441, 584)

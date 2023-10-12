@@ -126,3 +126,7 @@ func _on_radar_body_exited(body):
 #	if estado != Acciones.muerto:
 #		estado= Acciones.Patrullar
 	pass
+
+
+func _on_area_2d_body_entered(body):
+	pass # Replace with function body.
