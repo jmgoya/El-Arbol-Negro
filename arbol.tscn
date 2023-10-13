@@ -12,7 +12,7 @@
 script = ExtResource("1_bl832")
 
 [node name="Heroe" parent="." instance=ExtResource("3_aefpo")]
-position = Vector2(1488, 366)
+position = Vector2(211, 550)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_rvdlh")]
 

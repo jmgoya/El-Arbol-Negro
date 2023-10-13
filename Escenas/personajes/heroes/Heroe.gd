@@ -6,6 +6,11 @@ const SPEED =300.0
 const JUMP_VELOCITY = -500.0
 const correr = 1.5
 
+@export var vida = 100
+@export var sabiduria = 50
+@export var experiencia = 1
+@export var fuerza = 50
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -15,23 +20,22 @@ var saltando_estado =  false
 var poder_luz = Vector2(0.7,0.7)
 var disparando  =false
 
+func _ready():
+	Eventos.mordiendo.connect(recive_danio)
+
+func recive_danio(danio):
+	vida -= (danio / 10)
+	print ("Me dió... Vida = " + str(vida) )
+
 func _unhandled_input(event: InputEvent) -> void:
-	
-#	if event.is_action_released("ui_disparo"):
-#		$Animaciones.play("idle")
-#		return
-	
 	#enciende la luz
 	if event.is_action_pressed("ui_cancel"):
 		if $Luz.global_scale == poder_luz  :
 			var tween_luz = create_tween()
 			tween_luz.tween_property($Luz, "global_scale",Vector2(0,0), 1,)
-			
 		else:
 			var tween_luz = create_tween()
 			tween_luz.tween_property($Luz, "global_scale",poder_luz, 1,)
-	
-		
 	#Correr
 	if event.is_action_pressed("ui_correr"):
 		correr_estado = correr
@@ -61,7 +65,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		Disparar()
 	
 	decide_animation()
-	# print (velocity.x)
 
 func _physics_process(delta):
 	decide_animation()
@@ -72,15 +75,10 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		### que al saltar pueda subir a una plataforma
-#		if (velocity.y < 1):
-#			$CollisionShape2D.disabled = true
-#		else:
-#			$CollisionShape2D.disabled = false
 	else: 
 		saltando_estado = false
 	move_and_slide()
-#
+
 func saltar():
 	if saltando_estado == true:
 		return

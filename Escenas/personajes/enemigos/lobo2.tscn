@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuhc6yad5ydba"]
+[gd_scene load_steps=18 format=3 uid="uid://cuhc6yad5ydba"]
 
 [ext_resource type="Script" path="res://Escenas/personajes/enemigos/lobo2.gd" id="1_vkhrk"]
+[ext_resource type="Texture2D" uid="uid://cy8iwk36ansco" path="res://recursos/enemigos/animales/1 Dog/Death.png" id="3_pavce"]
 [ext_resource type="Texture2D" uid="uid://c0p1u04urf2o0" path="res://recursos/enemigos/animales/1 Dog/Walk.png" id="7_mf2al"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_keyot"]
@@ -27,6 +28,22 @@ region = Rect2(192, 0, 48, 48)
 atlas = ExtResource("7_mf2al")
 region = Rect2(240, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbig5"]
+atlas = ExtResource("3_pavce")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m6ma"]
+atlas = ExtResource("3_pavce")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q56i"]
+atlas = ExtResource("3_pavce")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebfjs"]
+atlas = ExtResource("3_pavce")
+region = Rect2(144, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cr4ba"]
 animations = [{
 "frames": [{
@@ -51,6 +68,23 @@ animations = [{
 "loop": true,
 "name": &"correr",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbig5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m6ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q56i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebfjs")
+}],
+"loop": false,
+"name": &"muerte",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txr5k"]
@@ -60,16 +94,18 @@ height = 42.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_nawff"]
 radius = 141.651
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_756v6"]
+radius = 13.0
+height = 38.0
+
 [node name="Lobo2" type="CharacterBody2D"]
 script = ExtResource("1_vkhrk")
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -23)
 sprite_frames = SubResource("SpriteFrames_cr4ba")
-animation = &"correr"
+animation = &"muerte"
 autoplay = "correr"
-frame = 2
-frame_progress = 0.80343
 
 [node name="CollisionLobo" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -12)
@@ -87,10 +123,20 @@ shape = SubResource("CircleShape2D_nawff")
 [node name="RayParedes" type="RayCast2D" parent="."]
 position = Vector2(0, -13)
 target_position = Vector2(33, 0)
+collision_mask = 3
 
 [node name="RayPiso" type="RayCast2D" parent="."]
 position = Vector2(27, -11)
 target_position = Vector2(0, 15)
 
+[node name="AreaCuerpo" type="Area2D" parent="."]
+
+[node name="CollisionCuerpo" type="CollisionShape2D" parent="AreaCuerpo"]
+position = Vector2(-1, -15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_756v6")
+
+[connection signal="animation_finished" from="Animaciones" to="." method="_on_animaciones_animation_finished"]
 [connection signal="body_entered" from="radar" to="." method="_on_radar_body_entered"]
 [connection signal="body_exited" from="radar" to="." method="_on_radar_body_exited"]
+[connection signal="area_entered" from="AreaCuerpo" to="." method="_on_area_cuerpo_area_entered"]
