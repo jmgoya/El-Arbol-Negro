@@ -17,4 +17,6 @@ func _physics_process(delta):
 
 func _on_bala_body_entered(body):
 	#choca y desaparece
-	self.queue_free()
+	queue_free()
+
+

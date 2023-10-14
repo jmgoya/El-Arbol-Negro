@@ -46,6 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	var true_speed = SPEED * correr_estado
+		#limite izquierdo
 	if direction:
 		velocity.x = direction * true_speed
 	else:
@@ -70,13 +71,14 @@ func _physics_process(delta):
 	decide_animation()
 	#limite muerte caida
 	if position.y >=700:
-		print ("Murió")
+		print (position.x)
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else: 
 		saltando_estado = false
+	
 	move_and_slide()
 
 func saltar():

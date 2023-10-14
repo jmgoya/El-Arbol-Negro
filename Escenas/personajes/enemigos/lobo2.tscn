@@ -88,15 +88,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txr5k"]
-radius = 13.0
-height = 42.0
+radius = 14.0
+height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nawff"]
 radius = 141.651
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_756v6"]
-radius = 13.0
-height = 38.0
+radius = 15.0
+height = 46.0
 
 [node name="Lobo2" type="CharacterBody2D"]
 script = ExtResource("1_vkhrk")
@@ -108,7 +108,7 @@ animation = &"muerte"
 autoplay = "correr"
 
 [node name="CollisionLobo" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -12)
+position = Vector2(0, -15)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_txr5k")
 
@@ -132,7 +132,7 @@ target_position = Vector2(0, 15)
 [node name="AreaCuerpo" type="Area2D" parent="."]
 
 [node name="CollisionCuerpo" type="CollisionShape2D" parent="AreaCuerpo"]
-position = Vector2(-1, -15)
+position = Vector2(0, -15)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_756v6")
 
