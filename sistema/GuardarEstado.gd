@@ -6,7 +6,6 @@ var guardado_archivo = "user://salvar_juego.save"
 func _ready():
 	leer_juego()
 
-
 func _salvar_juego():
 	pass
 

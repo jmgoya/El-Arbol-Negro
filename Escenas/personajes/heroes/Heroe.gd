@@ -6,10 +6,10 @@ const SPEED =300.0
 const JUMP_VELOCITY = -500.0
 const correr = 1.5
 
-@export var vida = 100
-@export var sabiduria = 50
-@export var experiencia = 1
-@export var fuerza = 50
+@export var salud = 100.00
+@export var sabiduria = 50.0
+@export var experiencia = 1.0
+@export var fuerza = 50.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,10 +22,17 @@ var disparando  =false
 
 func _ready():
 	Eventos.mordiendo.connect(recive_danio)
+	actualizar_valores("todo", 0)
 
-func recive_danio(danio):
-	vida -= (danio / 10)
-	print ("Me dió... Vida = " + str(vida) )
+func recive_danio(danio: float):
+	salud -= (danio / 10)
+	actualizar_valores("salud", salud)
+
+func actualizar_valores(propiedad, valor):
+	if propiedad == "salud" or propiedad =="todo":
+		Eventos.emit_signal("valores_player", "salud", salud)
+	if propiedad == "fuerza" or propiedad =="todo":
+		Eventos.emit_signal("valores_player", "fuerza", fuerza)
 
 func _unhandled_input(event: InputEvent) -> void:
 	#enciende la luz
@@ -43,7 +50,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	# 1 * correr
 	if event.is_action_released("ui_correr"):
 		correr_estado = 1
-	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	var true_speed = SPEED * correr_estado
 		#limite izquierdo
@@ -51,12 +57,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		velocity.x = direction * true_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
-	
 	if trepar:
 		print ("Trepar")
 		direction = Input.get_axis("ui_up", "ui_down")
 		velocity.y = direction * SPEED / 2
-	
 	# Handle Jump.
 	if Input.is_action_pressed("ui_saltar") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -64,7 +68,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	#Dispara
 	if event.is_action_pressed("ui_disparo"):
 		Disparar()
-	
 	decide_animation()
 
 func _physics_process(delta):
@@ -72,13 +75,11 @@ func _physics_process(delta):
 	#limite muerte caida
 	if position.y >=700:
 		print (position.x)
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else: 
 		saltando_estado = false
-	
 	move_and_slide()
 
 func saltar():
@@ -93,7 +94,6 @@ func Disparar():
 	var bala = disparos.instantiate()
 	bala.global_position = $spawn_disparo.global_position
 	get_parent().add_child(bala)
-	
 	if $Animaciones.flip_h == true:
 		bala.set("direccion",-1)
 	else:
@@ -143,7 +143,6 @@ func _on_animaciones_animation_finished():
 		saltando_estado = false
 	if disparando ==  true:
 		disparando = false
-	
 	$Animaciones.play("idle")
 
 func _on_area_2d_area_entered(area):

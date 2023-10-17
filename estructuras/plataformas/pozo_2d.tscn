@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dck3btk2ebcew"]
+
+[ext_resource type="PackedScene" uid="uid://b2s57u23ad5xm" path="res://estructuras/pozo.tscn" id="1_kqpph"]
+
+[node name="pozo_2d" type="Node2D"]
+metadata/_edit_vertical_guides_ = [161.0, 471.0]
+
+[node name="pozo" parent="." instance=ExtResource("1_kqpph")]

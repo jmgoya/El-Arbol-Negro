@@ -1,12 +1,33 @@
-[gd_scene format=3 uid="uid://c72urawp5yxxk"]
+[gd_scene load_steps=2 format=3 uid="uid://c72urawp5yxxk"]
+
+[ext_resource type="Script" path="res://sistema/ui.gd" id="1_nfee5"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 10
+anchor_right = 1.0
 grow_horizontal = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
+script = ExtResource("1_nfee5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 95.0
+offset_bottom = 56.0
+
+[node name="LabelDia" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="LabelHora" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -16,11 +37,10 @@ anchor_right = 1.0
 offset_left = -95.0
 offset_bottom = 56.0
 grow_horizontal = 0
+size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="LabelSalud" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Energia 30%"
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="LabelFuerza" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Vida 60%"
