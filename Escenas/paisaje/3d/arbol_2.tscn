@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1k4piw3x00jh"]
+
+[ext_resource type="Script" path="res://Escenas/paisaje/3d/arbol_2.gd" id="1_x84ig"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1fwn"]
+diffuse_mode = 1
+albedo_color = Color(0.403922, 0.0117647, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kxa1h"]
+material = SubResource("StandardMaterial3D_l1fwn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk2r0"]
+albedo_color = Color(0, 0.552941, 0.227451, 1)
+
+[sub_resource type="Animation" id="Animation_vdbop"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3rv6q"]
+resource_name = "mueve"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"mover_arbol"
+}, {
+"args": [],
+"method": &"mover_origen"
+}, {
+"args": [],
+"method": &"mover_arbol"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxkdy"]
+_data = {
+"RESET": SubResource("Animation_vdbop"),
+"mueve": SubResource("Animation_3rv6q")
+}
+
+[node name="Arbol2" type="Node3D"]
+script = ExtResource("1_x84ig")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 3, 0, 0, 0, 0.3, 0, 2.98987, 0)
+mesh = SubResource("CapsuleMesh_kxa1h")
+
+[node name="copas_grandes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245316, 4.52321, 4.28924e-08)
+
+[node name="copa_grande1" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(0.389807, 0.553672, -0.0292659, -0.0115697, -0.441526, -0.089695, -0.312916, 0.706046, -0.0331408, 0.224215, 0.962844, 0.577701)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande2" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(0.499315, -0.052336, -3.86524e-09, -0.0115697, -0.441526, -0.089695, 0.0234714, 0.895721, -0.0442132, -0.264, 0.966369, 0.942599)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande3" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(-0.497885, 0.0899858, -0.0018607, -0.0115697, -0.441526, -0.089695, -0.0444641, -0.892724, 0.044174, -0.0867785, 1.00427, -0.917779)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande7" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(-0.452386, -0.372397, 0.0206655, -0.0115697, -0.441526, -0.089695, 0.212633, -0.816318, 0.0390864, -0.515048, 1.04084, -0.781998)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande8" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(-0.385241, 0.579577, -0.0265422, -0.0115697, -0.441526, -0.089695, -0.318521, -0.684941, 0.0353599, 0.366151, 0.900923, -0.651562)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande4" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(0.0434821, 0.8929, -0.0441776, -0.0115697, -0.441526, -0.089695, -0.497971, 0.088225, -0.00177357, 0.484533, 1.00263, 0.0139305)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande5" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(-0.0109335, -0.896752, 0.0441993, -0.0115697, -0.441526, -0.089695, 0.499747, -0.0298412, -0.00110954, -0.955784, 1.05388, -0.0117663)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="copa_grande6" type="MeshInstance3D" parent="copas_grandes"]
+transform = Transform3D(0.299674, -0.72421, 0.0341032, -0.0115697, -0.441526, -0.089695, 0.400077, 0.529693, -0.0281385, -0.853658, 0.950311, 0.55657)
+material_override = SubResource("StandardMaterial3D_fk2r0")
+mesh = SubResource("CapsuleMesh_kxa1h")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "mueve"
+libraries = {
+"": SubResource("AnimationLibrary_kxkdy")
+}
+
+[node name="Node3D" type="Node3D" parent="."]

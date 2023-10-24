@@ -88,6 +88,7 @@ func _on_area_cuerpo_area_entered(area):
 		estado = Acciones.muerto
 		velocity.x = 0
 		$Animaciones.play("muerte")
+		self.set_collision_layer_value(1, false)
 
 func _on_animaciones_animation_finished():
 	if $Animaciones.animation == "muerte":

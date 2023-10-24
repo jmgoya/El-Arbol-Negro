@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://tvfcgas60cuu"]
+
+[ext_resource type="Texture2D" uid="uid://bh5cdfb7tndvu" path="res://recursos/hongos/PNG/without background/8.png" id="1_38mb3"]
+
+[sub_resource type="GDScript" id="GDScript_ei0ep"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	self.scale = Vector2 (0,0)
+	tween.tween_property(self, \"scale\", Vector2(0.3,0.3), 
+		Tiempo.velocidad_reloj / Tiempo.delta_tiempo )
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gcks"]
+radius = 220.0
+height = 500.0
+
+[node name="Hongo" type="Node2D"]
+script = SubResource("GDScript_ei0ep")
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(2, -55)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_38mb3")
+
+[node name="Hongo_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hongo_Area"]
+position = Vector2(1, -61)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CapsuleShape2D_8gcks")

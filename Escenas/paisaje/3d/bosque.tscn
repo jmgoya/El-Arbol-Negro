@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://0xm1ejtreuot"]
+
+[ext_resource type="PackedScene" uid="uid://dcr0vo3ghd81d" path="res://Escenas/paisaje/3d/arbol_1.tscn" id="1_mdjpa"]
+[ext_resource type="PackedScene" uid="uid://dkp15klab6lnm" path="res://Escenas/personajes/heroes/3D/heroe3d.tscn" id="1_tcp4y"]
+[ext_resource type="PackedScene" uid="uid://b1k4piw3x00jh" path="res://Escenas/paisaje/3d/arbol_2.tscn" id="2_6t61n"]
+
+[sub_resource type="Environment" id="Environment_f3em1"]
+ambient_light_color = Color(0.717647, 0.717647, 0.717647, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Heroe3D" parent="." instance=ExtResource("1_tcp4y")]
+transform = Transform3D(-0.996965, 0, -0.0778501, 0, 1, 0, 0.0778501, 0, -0.996965, 0, 2.55589, -7.32747)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 63.1744, 95.644)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Arbol1" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0439, 0, 0)
+
+[node name="Arbol2" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61096, 0, 0)
+
+[node name="Arbol3" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188018, 0, 0)
+
+[node name="Arbol4" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(-0.997708, 0, -0.0676669, 0, 1, 0, 0.0676669, 0, -0.997708, 1.68765, 0, 0)
+
+[node name="Arbol5" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68765, 0, 1.06804)
+
+[node name="Arbol6" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223924, 0, 1.72825)
+
+[node name="Arbol7" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1283, 0, 1.33287)
+
+[node name="Arbol8" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91046, 0, 2.39644)
+
+[node name="Arbol9" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91046, 0, 0.770221)
+
+[node name="Arbol10" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76639, 0, 2.52293)
+
+[node name="Arbol11" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61046, 0, 3.85553)
+
+[node name="Arbol12" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22323, 0, 3.85553)
+
+[node name="Arbol13" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6194, 0, 3.85553)
+
+[node name="Arbol14" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6194, 0, 2.57253)
+
+[node name="Arbol15" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6194, 0, -1.82992)
+
+[node name="Arbol16" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1469, 0, -1.82992)
+
+[node name="Arbol17" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(-0.997121, 0, -0.0758314, 0, 1, 0, 0.0758314, 0, -0.997121, -3.66439, 0, -1.82992)
+
+[node name="Arbol18" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66322, 0, -1.14088)
+
+[node name="Arbol19" parent="Node" instance=ExtResource("1_mdjpa")]
+transform = Transform3D(-0.954636, 0, 0.297775, 0, 1, 0, -0.297775, 0, -0.954636, 0.247752, 0, -2.38546)
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Arbol2" parent="Node2" instance=ExtResource("2_6t61n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55077, 0, 6.624)
+
+[node name="Arbol3" parent="Node2" instance=ExtResource("2_6t61n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86025, 0, 1.39217)
+
+[node name="Arbol4" parent="Node2" instance=ExtResource("2_6t61n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40747, 0, 4.76196)
+
+[node name="Arbol5" parent="Node2" instance=ExtResource("2_6t61n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.55077, 0, 3.04144)
+
+[node name="Arbol6" parent="Node2" instance=ExtResource("2_6t61n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13392, 0, 5.2939)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f3em1")

@@ -58,7 +58,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, true_speed)
 	if trepar:
-		print ("Trepar")
 		direction = Input.get_axis("ui_up", "ui_down")
 		velocity.y = direction * SPEED / 2
 	# Handle Jump.
@@ -74,7 +73,7 @@ func _physics_process(delta):
 	decide_animation()
 	#limite muerte caida
 	if position.y >=700:
-		print (position.x)
+		get_tree().reload_current_scene()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -138,7 +137,6 @@ func decide_animation():
 			pass
 
 func _on_animaciones_animation_finished():
-	
 	if saltando_estado ==  true:
 		saltando_estado = false
 	if disparando ==  true:
@@ -149,6 +147,8 @@ func _on_area_2d_area_entered(area):
 	var nombre = area.get_name()
 	if "soga" in nombre:
 		trepar = true
+	if "hongo_area" in nombre:
+		print ("que coma el hongo")
 
 func _on_area_2d_area_exited(area):
 	var nombre = area.get_name()

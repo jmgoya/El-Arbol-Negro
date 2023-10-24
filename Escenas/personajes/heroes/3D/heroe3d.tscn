@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkp15klab6lnm"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_stora"]
+
+[node name="Heroe3D" type="CharacterBody3D"]
+script = ExtResource("1_stora")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.977213, 0.212263, 0, -0.212263, 0.977213, 0, 1.54246, 1.62678)

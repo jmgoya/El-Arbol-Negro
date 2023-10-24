@@ -26,3 +26,5 @@ position = Vector2(68, -27)
 
 [node name="Heroe" parent="." instance=ExtResource("3_aefpo")]
 position = Vector2(211, 550)
+
+[node name="recursos" type="Node2D" parent="."]

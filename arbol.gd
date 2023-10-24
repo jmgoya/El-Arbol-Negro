@@ -18,13 +18,18 @@ func cambio_cielo(dia, hora, cielo):
 
 func nace_hongo(posicion):
 	print ("Nace un hongo en " + str(posicion))
+	var hongo_scn = load("res://Escenas/paisaje/hongo.tscn")
+	var hongo = hongo_scn.instantiate()
+	hongo.global_position = Vector2(posicion)
+	$recursos.add_child(hongo, false)
+	
 	
 func cargar_suelo(cantidad):
 	#el suelo mide 16 x 158
 	while cantidad > 0:
 		var suelo_scn = load ("res://estructuras/suelo front.tscn")
 		var suelo = suelo_scn.instantiate()
-		$Estructuras.add_child (suelo, true)
+		$Estructuras.add_child (suelo, false)
 		cantidad -= 1
 	for suelo_nuevo in $Estructuras.get_children():
 		suelo_nuevo.global_position.x = (2448 * (cantidad)) - 300
