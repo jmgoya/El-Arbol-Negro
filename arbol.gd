@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var largo: int = 2
-@export var cantidad_enemigos: int = 6
-@export var cantidad_plataformas: Vector2 = Vector2(6 , true)
+@export var largo: int = 4
+@export var cantidad_enemigos: int = 16
+@export var cantidad_plataformas: = 12
 
 func _ready():
 	Eventos.connect("tiempo", cambio_cielo)
@@ -17,8 +17,7 @@ func cambio_cielo(dia, hora, cielo):
 		Tiempo.velocidad_reloj / Tiempo.delta_tiempo * 2)
 
 func nace_hongo(posicion):
-	print ("Nace un hongo en " + str(posicion))
-	var hongo_scn = load("res://Escenas/paisaje/hongo.tscn")
+	var hongo_scn = load("res://Escenas/paisaje/hongos/hongo2.tscn")
 	var hongo = hongo_scn.instantiate()
 	hongo.global_position = Vector2(posicion)
 	$recursos.add_child(hongo, false)
@@ -42,27 +41,25 @@ func cargar_enemigos(cantidad):
 		$Enemigos.add_child (lobo_enemigo)
 		cantidad -= 1
 	for lobo_nuevo in $Enemigos.get_children():
-		var maximo = (2200 * largo)
-		lobo_nuevo.global_position.x =  randi_range(1000, maximo)
+		var maximo = (2300 * largo)
+		lobo_nuevo.global_position.x =  randi_range(500, maximo)
 		#((largo * 2200 ) / cantidad_enemigos) * (
 		#		randi_range (0, int ($Enemigos.get_child_count() ))) 
 
 func cargar_plataformas(cantidad):
 	var posicion: int = 500
 	var orden:int = 1
-	print (cantidad[0], " ", cantidad[1])
-	for numero in cantidad[0]:
+	for numero in cantidad:
 		while (orden%2) > 0 :
 			orden = randi()% 6 + 2
 		var plataforma_nueva_scn = load (Globales.plataformas_tscn[orden - 2])
 		var plataforma_nueva = plataforma_nueva_scn.instantiate()
 		plataforma_nueva.global_position.x = posicion
 		$Estructuras.add_child(plataforma_nueva)
-		if (randi() % 2) == 0:
+		if (randi() % 3) == 1:
 			var pos_temp = posicion
-			print ("Duplicado")
 			orden = 1
-			while ((orden%2) > 0 ) or orden == 1: #que no sea la plataforma pozo
+			while ((orden%2) > 0 ) or orden == 4: #que no sea la plataforma pozo
 				orden = randi()% 6 + 2
 			plataforma_nueva_scn = load (Globales.plataformas_tscn[orden - 2])
 			plataforma_nueva = plataforma_nueva_scn.instantiate()
