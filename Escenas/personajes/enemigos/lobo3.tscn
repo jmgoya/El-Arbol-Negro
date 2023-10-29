@@ -87,7 +87,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nawff"]
-radius = 141.651
+radius = 245.008
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_756v6"]
 radius = 15.0
@@ -105,7 +105,6 @@ autoplay = "correr"
 collision_mask = 2
 
 [node name="CollisionRadar" type="CollisionShape2D" parent="radar"]
-visible = false
 position = Vector2(-1, -15)
 shape = SubResource("CircleShape2D_nawff")
 

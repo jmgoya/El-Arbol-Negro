@@ -18,7 +18,16 @@ var estado: int = Acciones.Patrullar
 var posicion_heroe: float = 0.0
 
 func _ready():
+	Eventos.tiempo.connect(vision)
 	iniciar_velocidad()
+	
+
+func vision(dia, hora, cielo):
+	
+	if (hora >=9 and hora <= 18 ):
+		$radar/CollisionRadar.scale = Vector2 (1.0, 1.0)
+	else:
+		$radar/CollisionRadar.scale = Vector2 (0.5, 0.5)
 
 func _physics_process(delta):
 	# Add the gravity.

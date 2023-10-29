@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://tvfcgas60cuu"]
+[gd_scene load_steps=58 format=3 uid="uid://tvfcgas60cuu"]
 
 [ext_resource type="Texture2D" uid="uid://bh5cdfb7tndvu" path="res://recursos/hongos/PNG/without background/8.png" id="1_38mb3"]
 [ext_resource type="Texture2D" uid="uid://d2v0bqwepgb0b" path="res://recursos/hongos/PNG/without background/1.png" id="1_wssjl"]
@@ -57,6 +57,9 @@ script/source = "extends Node2D
 var tipos_de_hongo = [\"comida\", \"sanacion\", \"alucinogeno\", \"veneno\"]
 var tipo
 var hongo_intensidad
+var intensidad = 0
+var experiencia_player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#elige el hongo
@@ -64,6 +67,20 @@ func _ready():
 	var imagen = $imagenes.get_child(hongo_intensidad)
 	imagen.visible = true
 	tipo = int (hongo_intensidad / 10)-1
+	match tipo:
+		0:
+			$info/AnimationPlayer.play(\"blanco\")
+		1:
+			$info/AnimationPlayer.play(\"cyan\")
+		2:
+			$info/AnimationPlayer.play(\"purpura\")
+		3:
+			$info/AnimationPlayer.play(\"rojo\")
+	intensidad = (int(hongo_intensidad -( (tipo+1) * 10))+1)
+	$info/Label.text = str(intensidad)
+	if (experiencia_player >= intensidad):
+		$info/Label.visible = true
+	
 	
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	self.scale = Vector2 (0,0)
@@ -79,6 +96,77 @@ func _process(delta):
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gcks"]
 radius = 266.667
 height = 580.0
+
+[sub_resource type="Animation" id="Animation_40ky6"]
+resource_name = "blanco"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6hsik"]
+resource_name = "cyan"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.392157, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mxqfu"]
+resource_name = "purpura"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.172549, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qdj5b"]
+resource_name = "rojo"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xxc1r"]
+_data = {
+"blanco": SubResource("Animation_40ky6"),
+"cyan": SubResource("Animation_6hsik"),
+"purpura": SubResource("Animation_mxqfu"),
+"rojo": SubResource("Animation_qdj5b")
+}
 
 [node name="Hongo" type="Node2D"]
 script = SubResource("GDScript_ei0ep")
@@ -391,3 +479,22 @@ visible = false
 position = Vector2(-3, -60)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("50_jy4j1")
+
+[node name="info" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="info"]
+libraries = {
+"": SubResource("AnimationLibrary_xxc1r")
+}
+
+[node name="Label" type="Label" parent="info"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+offset_left = 29.0
+offset_top = -155.0
+offset_right = 69.0
+offset_bottom = -132.0
+theme_override_font_sizes/font_size = 36
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1

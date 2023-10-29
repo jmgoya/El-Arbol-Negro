@@ -92,7 +92,7 @@ radius = 14.0
 height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nawff"]
-radius = 141.651
+radius = 233.214
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_756v6"]
 radius = 15.0
@@ -116,8 +116,8 @@ shape = SubResource("CapsuleShape2D_txr5k")
 collision_mask = 2
 
 [node name="CollisionRadar" type="CollisionShape2D" parent="radar"]
-visible = false
 position = Vector2(-1, -15)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_nawff")
 
 [node name="RayParedes" type="RayCast2D" parent="."]

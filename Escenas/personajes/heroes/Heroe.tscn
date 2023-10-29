@@ -528,6 +528,11 @@ collision_mask = 3
 script = ExtResource("1_70b0f")
 disparos = ExtResource("2_bdf7l")
 
+[node name="Luz" parent="." instance=ExtResource("12_uertl")]
+position = Vector2(-2.5, -20.5)
+scale = Vector2(1e-05, 1e-05)
+color = Color(1, 1, 1, 1)
+
 [node name="Animaciones" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -32)
 sprite_frames = SubResource("SpriteFrames_2f6o4")
@@ -550,11 +555,6 @@ editor_draw_drag_margin = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_ncv53")
-
-[node name="Luz" parent="." instance=ExtResource("12_uertl")]
-position = Vector2(-2.5, -20.5)
-scale = Vector2(1e-05, 1e-05)
-color = Color(1, 1, 1, 1)
 
 [node name="spawn_disparo" type="Marker2D" parent="."]
 position = Vector2(35, 0)

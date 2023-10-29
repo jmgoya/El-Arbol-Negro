@@ -6,7 +6,6 @@ func _ready():
 	Eventos.valores_player.connect(actualiza_valores)
 
 func actualiza_valores(propiedad, valor):
-	print ("Llegó la señal " + str(valor))
 	match propiedad:
 		"salud":
 			$VBoxContainer/LabelSalud.set_text ("Salud " + str(round(valor)))

@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqpfm4jweelan"]
+[gd_scene load_steps=3 format=3 uid="uid://dqpfm4jweelan"]
 
 [ext_resource type="Texture2D" uid="uid://ekf1ewcd2xgr" path="res://recursos/luz/light.png" id="1_88i10"]
+[ext_resource type="Script" path="res://Escenas/personajes/luz.gd" id="2_drlq1"]
 
 [node name="Luz" type="PointLight2D"]
 color = Color(0.992157, 0.960784, 0, 1)
 texture = ExtResource("1_88i10")
+script = ExtResource("2_drlq1")

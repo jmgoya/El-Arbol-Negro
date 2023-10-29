@@ -8,8 +8,9 @@ const correr = 1.5
 
 @export var salud = 100.00
 @export var sabiduria = 50.0
-@export var experiencia = 1.0
+@export var experiencia = 4.0
 @export var fuerza = 50.0
+@export var fuerza_max = 60.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,7 +18,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var trepar = false
 var correr_estado = 1
 var saltando_estado =  false
-var poder_luz = Vector2(0.7,0.7)
 var disparando  =false
 
 func _ready():
@@ -37,12 +37,8 @@ func actualizar_valores(propiedad, valor):
 func _unhandled_input(event: InputEvent) -> void:
 	#enciende la luz
 	if event.is_action_pressed("ui_cancel"):
-		if $Luz.global_scale == poder_luz  :
-			var tween_luz = create_tween()
-			tween_luz.tween_property($Luz, "global_scale",Vector2(0,0), 1,)
-		else:
-			var tween_luz = create_tween()
-			tween_luz.tween_property($Luz, "global_scale",poder_luz, 1,)
+		Eventos.emit_signal("luz")
+		
 	#Correr
 	if event.is_action_pressed("ui_correr"):
 		correr_estado = correr
