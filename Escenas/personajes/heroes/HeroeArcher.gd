@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		saltar()
 	
 	decide_animation()
-	# print (velocity.x)
+
 
 func _physics_process(delta):
 	#limite muerte caida

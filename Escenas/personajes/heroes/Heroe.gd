@@ -8,9 +8,11 @@ const correr = 1.5
 
 @export var salud = 100.00
 @export var sabiduria = 50.0
-@export var experiencia = 4.0
+@export var experiencia = 10.0
 @export var fuerza = 50.0
 @export var fuerza_max = 60.0
+
+var mochila = [0,0,0,0]
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,6 +21,7 @@ var trepar = false
 var correr_estado = 1
 var saltando_estado =  false
 var disparando  =false
+var comer_recoger
 
 func _ready():
 	Eventos.mordiendo.connect(recive_danio)
@@ -62,7 +65,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		saltar()
 	#Dispara
 	if event.is_action_pressed("ui_disparo"):
-		Disparar()
+		if comer_recoger:
+			f_Comer_Recoger()
+		else:
+			Disparar()
+	
 	decide_animation()
 
 func _physics_process(delta):
@@ -143,10 +150,19 @@ func _on_area_2d_area_entered(area):
 	var nombre = area.get_name()
 	if "soga" in nombre:
 		trepar = true
-	if "hongo_area" in nombre:
-		print ("que coma el hongo")
+	if "Hongo_Area" in nombre:
+		comer_recoger = area.get_parent()
+	
 
 func _on_area_2d_area_exited(area):
 	var nombre = area.get_name()
 	if "soga" in nombre:
 		trepar = false
+	elif "Hongo_Area" in nombre:
+		comer_recoger = null
+
+func f_Comer_Recoger():
+	mochila[comer_recoger.tipo ] = mochila[comer_recoger.tipo ] + comer_recoger.intensidad
+	Eventos.emit_signal("valores_player", "mochila", mochila)
+	Eventos.comer_recoger.emit(comer_recoger)
+	print (mochila)

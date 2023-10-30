@@ -1,39 +1,461 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgclsv1isgx1w"]
+[gd_scene load_steps=58 format=3 uid="uid://tvfcgas60cuu"]
 
 [ext_resource type="Texture2D" uid="uid://bh5cdfb7tndvu" path="res://recursos/hongos/PNG/without background/8.png" id="1_cklj4"]
-
-[sub_resource type="GDScript" id="GDScript_ei0ep"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	self.scale = Vector2 (0,0)
-	tween.tween_property(self, \"scale\", Vector2(0.3,0.3), 
-		Tiempo.velocidad_reloj / Tiempo.delta_tiempo )
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
+[ext_resource type="Script" path="res://Escenas/paisaje/hongos/hongo.gd" id="1_mq64v"]
+[ext_resource type="Texture2D" uid="uid://d2v0bqwepgb0b" path="res://recursos/hongos/PNG/without background/1.png" id="2_mx6ou"]
+[ext_resource type="Texture2D" uid="uid://c53mtntokxh02" path="res://recursos/hongos/PNG/without background/2.png" id="3_h7mwr"]
+[ext_resource type="Texture2D" uid="uid://bvyforr7xsgfd" path="res://recursos/hongos/PNG/without background/3.png" id="4_j4a5i"]
+[ext_resource type="Texture2D" uid="uid://b13gbp06wit1h" path="res://recursos/hongos/PNG/without background/4.png" id="5_74jer"]
+[ext_resource type="Texture2D" uid="uid://qrxavlqdwl2o" path="res://recursos/hongos/PNG/without background/5.png" id="6_exq0k"]
+[ext_resource type="Texture2D" uid="uid://iqfy8pdyj0kp" path="res://recursos/hongos/PNG/without background/6.png" id="7_lyces"]
+[ext_resource type="Texture2D" uid="uid://ccbxefp16ca38" path="res://recursos/hongos/PNG/without background/7.png" id="8_h54ag"]
+[ext_resource type="Texture2D" uid="uid://slyy5r4xobnb" path="res://recursos/hongos/PNG/without background/9.png" id="10_yeanc"]
+[ext_resource type="Texture2D" uid="uid://0l5abrg81lvy" path="res://recursos/hongos/PNG/without background/10.png" id="11_pjtw2"]
+[ext_resource type="Texture2D" uid="uid://du3lknhn5esye" path="res://recursos/hongos/PNG/without background/11.png" id="12_6ek0m"]
+[ext_resource type="Texture2D" uid="uid://cv5dox0f45m0" path="res://recursos/hongos/PNG/without background/12.png" id="13_y6fo6"]
+[ext_resource type="Texture2D" uid="uid://yfa2lmv2d1ym" path="res://recursos/hongos/PNG/without background/13.png" id="14_boyix"]
+[ext_resource type="Texture2D" uid="uid://eqd4j5uod1o0" path="res://recursos/hongos/PNG/without background/14.png" id="15_gx8oo"]
+[ext_resource type="Texture2D" uid="uid://bjfihnw1fxisb" path="res://recursos/hongos/PNG/without background/15.png" id="16_eypox"]
+[ext_resource type="Texture2D" uid="uid://bw6wd546we0uh" path="res://recursos/hongos/PNG/without background/16.png" id="17_aibop"]
+[ext_resource type="Texture2D" uid="uid://bkjhgnkc0r7cd" path="res://recursos/hongos/PNG/without background/17.png" id="18_g5j5e"]
+[ext_resource type="Texture2D" uid="uid://cquq3q50d1kxg" path="res://recursos/hongos/PNG/without background/18.png" id="19_nn16i"]
+[ext_resource type="Texture2D" uid="uid://boo13qtf0qdmq" path="res://recursos/hongos/PNG/without background/19.png" id="20_55dtw"]
+[ext_resource type="Texture2D" uid="uid://c8ujjf2s6flc5" path="res://recursos/hongos/PNG/without background/20.png" id="21_q8pqv"]
+[ext_resource type="Texture2D" uid="uid://d2lf3sshmiing" path="res://recursos/hongos/PNG/without background/21.png" id="22_5rlc7"]
+[ext_resource type="Texture2D" uid="uid://dbprtchpoew1w" path="res://recursos/hongos/PNG/without background/22.png" id="23_twymf"]
+[ext_resource type="Texture2D" uid="uid://nf0lwpi183np" path="res://recursos/hongos/PNG/without background/23.png" id="24_c02cr"]
+[ext_resource type="Texture2D" uid="uid://byc6xtdl0hdw1" path="res://recursos/hongos/PNG/without background/24.png" id="25_wpul1"]
+[ext_resource type="Texture2D" uid="uid://cc727cwsjj6qq" path="res://recursos/hongos/PNG/without background/25.png" id="26_qslor"]
+[ext_resource type="Texture2D" uid="uid://cbccvbhdhf3ji" path="res://recursos/hongos/PNG/without background/26.png" id="27_bfol0"]
+[ext_resource type="Texture2D" uid="uid://bhdmwywi2t7r4" path="res://recursos/hongos/PNG/without background/27.png" id="28_8lnbo"]
+[ext_resource type="Texture2D" uid="uid://d4hcsr4mqmvj1" path="res://recursos/hongos/PNG/without background/28.png" id="29_4tnw1"]
+[ext_resource type="Texture2D" uid="uid://c6f5i5d1utrdd" path="res://recursos/hongos/PNG/without background/29.png" id="30_rso8q"]
+[ext_resource type="Texture2D" uid="uid://jfb4de0pq7t2" path="res://recursos/hongos/PNG/without background/30.png" id="31_1157g"]
+[ext_resource type="Texture2D" uid="uid://c4gpcg8550iy5" path="res://recursos/hongos/PNG/without background/31.png" id="32_phafp"]
+[ext_resource type="Texture2D" uid="uid://gjbwyl07b11t" path="res://recursos/hongos/PNG/without background/32.png" id="33_onfds"]
+[ext_resource type="Texture2D" uid="uid://dwoo8nthkvb3o" path="res://recursos/hongos/PNG/without background/33.png" id="34_21rgm"]
+[ext_resource type="Texture2D" uid="uid://bavev3mwbvh6" path="res://recursos/hongos/PNG/without background/34.png" id="35_2qu0c"]
+[ext_resource type="Texture2D" uid="uid://1qbue27xce2b" path="res://recursos/hongos/PNG/without background/35.png" id="36_h57ip"]
+[ext_resource type="Texture2D" uid="uid://bgwl7r5gon65x" path="res://recursos/hongos/PNG/without background/36.png" id="37_eeu0x"]
+[ext_resource type="Texture2D" uid="uid://dhtjsja1k5cid" path="res://recursos/hongos/PNG/without background/37.png" id="38_fekf8"]
+[ext_resource type="Texture2D" uid="uid://buchvjrvyh8kl" path="res://recursos/hongos/PNG/without background/38.png" id="39_irdto"]
+[ext_resource type="Texture2D" uid="uid://b26lbcfbyyqlb" path="res://recursos/hongos/PNG/without background/39.png" id="40_qcfvd"]
+[ext_resource type="Texture2D" uid="uid://bwac6wqyy034p" path="res://recursos/hongos/PNG/without background/40.png" id="41_itkwe"]
+[ext_resource type="Texture2D" uid="uid://dw50amh2aag0" path="res://recursos/hongos/PNG/without background/41.png" id="42_7vgos"]
+[ext_resource type="Texture2D" uid="uid://dljpbk1mj72s2" path="res://recursos/hongos/PNG/without background/42.png" id="43_62rt7"]
+[ext_resource type="Texture2D" uid="uid://qo17fgmxhmxc" path="res://recursos/hongos/PNG/without background/43.png" id="44_olxok"]
+[ext_resource type="Texture2D" uid="uid://22emeg35urvh" path="res://recursos/hongos/PNG/without background/44.png" id="45_ogyeh"]
+[ext_resource type="Texture2D" uid="uid://dd5oykd71mmp3" path="res://recursos/hongos/PNG/without background/45.png" id="46_boeln"]
+[ext_resource type="Texture2D" uid="uid://bl6q6i110n2uy" path="res://recursos/hongos/PNG/without background/46.png" id="47_7iddl"]
+[ext_resource type="Texture2D" uid="uid://b6gwh74mhsbbf" path="res://recursos/hongos/PNG/without background/47.png" id="48_05w5q"]
+[ext_resource type="Texture2D" uid="uid://daeum4qjjrjbw" path="res://recursos/hongos/PNG/without background/48.png" id="49_r7hyy"]
+[ext_resource type="Texture2D" uid="uid://dusnrtnhab6fj" path="res://recursos/hongos/PNG/without background/49.png" id="50_owl84"]
+[ext_resource type="Texture2D" uid="uid://dgju8ataxfrq7" path="res://recursos/hongos/PNG/without background/50.png" id="51_ojigv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gcks"]
-radius = 220.0
-height = 500.0
+radius = 266.667
+height = 580.0
+
+[sub_resource type="Animation" id="Animation_40ky6"]
+resource_name = "blanco"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6hsik"]
+resource_name = "cyan"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.392157, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mxqfu"]
+resource_name = "purpura"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.172549, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qdj5b"]
+resource_name = "rojo"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xxc1r"]
+_data = {
+"blanco": SubResource("Animation_40ky6"),
+"cyan": SubResource("Animation_6hsik"),
+"purpura": SubResource("Animation_mxqfu"),
+"rojo": SubResource("Animation_qdj5b")
+}
 
 [node name="Hongo" type="Node2D"]
-script = SubResource("GDScript_ei0ep")
+script = ExtResource("1_mq64v")
 
-[node name="8" type="Sprite2D" parent="."]
-position = Vector2(2, -55)
+[node name="Hongo_Area" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hongo_Area"]
+position = Vector2(-1, -75)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CapsuleShape2D_8gcks")
+
+[node name="imagenes" type="Node2D" parent="."]
+
+[node name="1" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_mx6ou")
+
+[node name="2" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_h7mwr")
+
+[node name="3" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_j4a5i")
+
+[node name="4" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_74jer")
+
+[node name="5" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_exq0k")
+
+[node name="6" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_lyces")
+
+[node name="7" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_h54ag")
+
+[node name="8" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_cklj4")
 
-[node name="Hongo_Area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hongo_Area"]
-position = Vector2(1, -61)
+[node name="9" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
 scale = Vector2(0.3, 0.3)
-shape = SubResource("CapsuleShape2D_8gcks")
+texture = ExtResource("10_yeanc")
+
+[node name="10" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_pjtw2")
+
+[node name="11" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_6ek0m")
+
+[node name="12" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_y6fo6")
+
+[node name="13" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_boyix")
+
+[node name="14" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_gx8oo")
+
+[node name="15" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_eypox")
+
+[node name="16" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_aibop")
+
+[node name="17" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_g5j5e")
+
+[node name="18" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_nn16i")
+
+[node name="19" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("20_55dtw")
+
+[node name="20" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("21_q8pqv")
+
+[node name="21" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("22_5rlc7")
+
+[node name="22" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_twymf")
+
+[node name="23" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("24_c02cr")
+
+[node name="24" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("25_wpul1")
+
+[node name="25" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("26_qslor")
+
+[node name="26" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("27_bfol0")
+
+[node name="27" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("28_8lnbo")
+
+[node name="28" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("29_4tnw1")
+
+[node name="29" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("30_rso8q")
+
+[node name="30" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("31_1157g")
+
+[node name="31" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("32_phafp")
+
+[node name="32" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("33_onfds")
+
+[node name="33" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("34_21rgm")
+
+[node name="34" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("35_2qu0c")
+
+[node name="35" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("36_h57ip")
+
+[node name="36" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("37_eeu0x")
+
+[node name="37" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("38_fekf8")
+
+[node name="38" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("39_irdto")
+
+[node name="39" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("40_qcfvd")
+
+[node name="40" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("41_itkwe")
+
+[node name="41" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("42_7vgos")
+
+[node name="42" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("43_62rt7")
+
+[node name="43" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("44_olxok")
+
+[node name="44" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("45_ogyeh")
+
+[node name="45" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("46_boeln")
+
+[node name="46" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("47_7iddl")
+
+[node name="47" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("48_05w5q")
+
+[node name="48" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("49_r7hyy")
+
+[node name="49" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("50_owl84")
+
+[node name="50" type="Sprite2D" parent="imagenes"]
+visible = false
+position = Vector2(-3, -60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("51_ojigv")
+
+[node name="info" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="info"]
+libraries = {
+"": SubResource("AnimationLibrary_xxc1r")
+}
+
+[node name="Label" type="Label" parent="info"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+offset_left = 29.0
+offset_top = -155.0
+offset_right = 69.0
+offset_bottom = -132.0
+theme_override_font_sizes/font_size = 36
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1

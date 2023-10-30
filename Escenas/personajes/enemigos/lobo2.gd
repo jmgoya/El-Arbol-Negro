@@ -103,6 +103,6 @@ func _on_animaciones_animation_finished():
 	if $Animaciones.animation == "muerte":
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "scale", Vector2(0,0),Tiempo.velocidad_reloj / 
-			Tiempo.delta_tiempo * 10)
-		tween.tween_callback(queue_free)
+			Tiempo.delta_tiempo * 5)
 		Eventos.emit_signal("muere_perro", self.global_position)
+		tween.tween_callback(queue_free)

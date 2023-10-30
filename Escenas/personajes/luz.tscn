@@ -1,9 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqpfm4jweelan"]
+[gd_scene load_steps=5 format=3 uid="uid://dqpfm4jweelan"]
 
 [ext_resource type="Texture2D" uid="uid://ekf1ewcd2xgr" path="res://recursos/luz/light.png" id="1_88i10"]
 [ext_resource type="Script" path="res://Escenas/personajes/luz.gd" id="2_drlq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r4et"]
+bg_color = Color(0.129412, 0.282353, 0.627451, 0.819608)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yikl"]
+bg_color = Color(0.309804, 0.243137, 0.905882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Luz" type="PointLight2D"]
 color = Color(0.992157, 0.960784, 0, 1)
 texture = ExtResource("1_88i10")
 script = ExtResource("2_drlq1")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.486275)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -542.0
+offset_top = -666.0
+offset_right = -473.0
+offset_bottom = -650.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3r4et")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4yikl")
+value = 50.0
+show_percentage = false

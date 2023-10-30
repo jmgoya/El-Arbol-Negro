@@ -1,8 +1,10 @@
 extends Node2D
 
 @export var largo: int = 4
-@export var cantidad_enemigos: int = 15
+@export var cantidad_enemigos: int = 35
 @export var cantidad_plataformas: = 10
+
+var hongo_scn = load("res://Escenas/paisaje/hongos/hongo.tscn")
 
 func _ready():
 	Eventos.connect("tiempo", cambio_cielo)
@@ -14,10 +16,9 @@ func _ready():
 func cambio_cielo(dia, hora, cielo):
 	var tween = create_tween()
 	tween.tween_property($CanvasModulate, "color", cielo, 
-		Tiempo.velocidad_reloj / Tiempo.delta_tiempo * 2)
+		Tiempo.velocidad_reloj / Tiempo.delta_tiempo )
 
 func nace_hongo(posicion):
-	var hongo_scn = load("res://Escenas/paisaje/hongos/hongo2.tscn")
 	var hongo = hongo_scn.instantiate()
 	hongo.global_position = Vector2(posicion)
 	hongo.experiencia_player = $Heroe.experiencia
@@ -57,12 +58,9 @@ func cargar_plataformas(cantidad):
 		var plataforma_nueva = plataforma_nueva_scn.instantiate()
 		$Estructuras.add_child(plataforma_nueva)
 		plataforma_nueva.global_position.x = posicion
-		print ("Plataforma posicion Y " + str(plataforma_nueva.global_position.y))
-		print ("Plataforma posicion X " + str(plataforma_nueva.global_position.x))
 		plataforma_nueva.global_position.y = -45
 		
 		if (randi() % 3) == 1:
-			print ("duplicada")
 			var pos_temp = posicion
 			orden = 1
 			while ((orden%2) > 0 ) or orden == 4: #que no sea la plataforma pozo
@@ -70,9 +68,6 @@ func cargar_plataformas(cantidad):
 			plataforma_nueva_scn = load (Globales.plataformas_tscn[orden - 2])
 			plataforma_nueva = plataforma_nueva_scn.instantiate()
 			$Estructuras.add_child(plataforma_nueva)
-			plataforma_nueva.global_position = Vector2(posicion, -200)
+			plataforma_nueva.global_position = Vector2(posicion, -300)
 			
 		posicion = posicion + Globales.plataformas_tscn[orden - 1]
-		print ("Plataforma: " + str (orden - 2) + " Posición relativa: 
-			" + str(Globales.plataformas_tscn[orden - 1]) + "Pos. Global: " + str (posicion))
-		orden = 1

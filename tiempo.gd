@@ -1,6 +1,6 @@
 extends Timer
 
-@export var hora: float = 5.0
+@export var hora: float = 19.0
 @export var dia: int = 1
 @export var velocidad_reloj: float = 2
 @export var delta_tiempo: float = 0.5
@@ -28,5 +28,5 @@ func color_cielo(hora):
 	if hora >= 17:
 		color = Color(1,0,0.4)
 	if (hora >= 20 or hora <= 6):
-		color = Color(0.01,0.01,0.2)
+		color = Color(0.03,0.03,0.03)
 	return color

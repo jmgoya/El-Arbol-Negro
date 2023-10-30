@@ -1,74 +1,222 @@
-[gd_scene load_steps=3 format=3 uid="uid://c72urawp5yxxk"]
+[gd_scene load_steps=12 format=3 uid="uid://c72urawp5yxxk"]
 
 [ext_resource type="Script" path="res://sistema/ui.gd" id="1_nfee5"]
+[ext_resource type="StyleBox" uid="uid://b6vy80af11f0i" path="res://sistema/uiverde.tres" id="2_0kb7b"]
+[ext_resource type="Texture2D" uid="uid://d2v0bqwepgb0b" path="res://recursos/hongos/PNG/without background/1.png" id="3_lkl41"]
+[ext_resource type="Texture2D" uid="uid://cv5dox0f45m0" path="res://recursos/hongos/PNG/without background/12.png" id="4_tkpt2"]
+[ext_resource type="Texture2D" uid="uid://c6f5i5d1utrdd" path="res://recursos/hongos/PNG/without background/29.png" id="5_nx1hd"]
+[ext_resource type="Texture2D" uid="uid://b6gwh74mhsbbf" path="res://recursos/hongos/PNG/without background/47.png" id="6_d8apm"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_p34q4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcqfg"]
+bg_color = Color(0.121569, 0.541176, 0.839216, 0.580392)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iheq8"]
+bg_color = Color(0.282353, 0.592157, 0.964706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hdhb"]
+bg_color = Color(0.47451, 0.811765, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_xbxqc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vpkd4"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("1_nfee5")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 37.0
+offset_bottom = 81.0
+size_flags_horizontal = 0
+
+[node name="LabelDia" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "dia"
+
+[node name="LabelHora" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "hora"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 56.0
+offset_bottom = 81.0
 grow_horizontal = 2
+alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 95.0
-offset_bottom = 56.0
-
-[node name="LabelDia" type="Label" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+alignment = 1
 
-[node name="LabelHora" type="Label" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.298039, 0.298039, 0.298039, 1)
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -58.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "En este texto se contará parte de la historia o lo que va pasando en el  juego,  eventos que sea necesario que el jugador identifique. Esto será veloz y los dialogos pasarán uno detras de otro en ciertos momentos, por lo que el jugadr deberá estar atento."
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -95.0
-offset_bottom = 56.0
+anchor_bottom = 1.0
+offset_left = -123.0
 grow_horizontal = 0
-size_flags_horizontal = 8
+grow_vertical = 2
 
-[node name="LabelSalud" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
 layout_mode = 2
 
-[node name="LabelFuerza" type="Label" parent="VBoxContainer"]
+[node name="LabelSalud" type="Label" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
+text = "Salud"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ProgressBarSalud" type="ProgressBar" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qcqfg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iheq8")
+value = 50.0
 
-[node name="LabelExperiencia" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="LabelFuerza" type="Label" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-text = "F"
+text = "Fuerza"
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
+[node name="ProgressBarFuerza" type="ProgressBar" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-step = 1.0
-value = 44.0
+theme_override_styles/background = ExtResource("2_0kb7b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1hdhb")
+value = 50.0
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.239216, 0.239216, 0.239216, 0.270588)
-position = Vector2(576.5, 604)
-scale = Vector2(1121, 68)
-mesh = SubResource("QuadMesh_p34q4")
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = SubResource("Theme_xbxqc")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 582.0
-offset_right = 1118.0
-offset_bottom = 638.0
-text = "En este texto se contará parte de la historia o lo que va pasando en el  juego,  eventos que sea necesario que el jugador identifique. Esto será veloz y los dialogos pasarán uno detras de otro en ciertos momentos, por lo que el jugadr deberá estar atento."
+[node name="MeshInstance2D" type="MeshInstance2D" parent="VBoxContainer3/VBoxContainer2"]
+modulate = Color(0.376471, 0.686275, 1, 0.160784)
+position = Vector2(29, 128)
+scale = Vector2(104, 254)
+mesh = SubResource("QuadMesh_vpkd4")
+
+[node name="LabelMochila" type="Label" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Mochila"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 2
+
+[node name="1" type="Sprite2D" parent="VBoxContainer3/VBoxContainer2/HBoxContainer"]
+position = Vector2(-18, 12)
+scale = Vector2(0.05, 0.0496085)
+texture = ExtResource("3_lkl41")
+
+[node name="LabelHongosComida" type="Label" parent="VBoxContainer3/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 2
+
+[node name="12" type="Sprite2D" parent="VBoxContainer3/VBoxContainer2/HBoxContainer2"]
+position = Vector2(-17, 11)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_tkpt2")
+
+[node name="LabelHongosSalud" type="Label" parent="VBoxContainer3/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="29" type="Sprite2D" parent="VBoxContainer3/VBoxContainer2/HBoxContainer3"]
+position = Vector2(-13, 10)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_nx1hd")
+
+[node name="LabelHongosPsicodelico" type="Label" parent="VBoxContainer3/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="47" type="Sprite2D" parent="VBoxContainer3/VBoxContainer2/HBoxContainer4"]
+position = Vector2(-14, 11)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_d8apm")
+
+[node name="LabelHongosVeneno" type="Label" parent="VBoxContainer3/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer3/VBoxContainer3"]
+layout_mode = 2
