@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpc6l3r7eimg8"]
+[gd_scene load_steps=6 format=3 uid="uid://dpc6l3r7eimg8"]
 
 [ext_resource type="Script" path="res://arbol.gd" id="1_bl832"]
 [ext_resource type="PackedScene" uid="uid://oxhasklia4to" path="res://Escenas/personajes/heroes/Heroe.tscn" id="3_aefpo"]
 [ext_resource type="PackedScene" uid="uid://bs14l4eqabgop" path="res://Escenas/fondos/parallax_background.tscn" id="3_rvdlh"]
 [ext_resource type="PackedScene" uid="uid://c72urawp5yxxk" path="res://sistema/ui.tscn" id="4_mystx"]
+[ext_resource type="PackedScene" uid="uid://duve2plb8p5xm" path="res://Escenas/personajes/enemigos/buitre.tscn" id="5_ccdho"]
 
 [node name="Arbol" type="Node2D" groups=["Guardar"]]
 script = ExtResource("1_bl832")
@@ -25,3 +26,6 @@ position = Vector2(68, -27)
 position = Vector2(211, 474)
 
 [node name="recursos" type="Node2D" parent="."]
+
+[node name="buitre" parent="." instance=ExtResource("5_ccdho")]
+position = Vector2(476, 303)

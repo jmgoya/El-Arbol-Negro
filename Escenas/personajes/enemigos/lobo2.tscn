@@ -99,6 +99,7 @@ radius = 15.0
 height = 46.0
 
 [node name="Lobo2" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_vkhrk")
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="."]
@@ -108,11 +109,14 @@ animation = &"muerte"
 autoplay = "correr"
 
 [node name="CollisionLobo" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -15)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_txr5k")
 
 [node name="radar" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionRadar" type="CollisionShape2D" parent="radar"]

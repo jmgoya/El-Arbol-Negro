@@ -25,11 +25,14 @@ var comer_recoger
 
 func _ready():
 	Eventos.mordiendo.connect(recive_danio)
+	Eventos.muere_player.connect(muerte)
 	actualizar_valores("todo", 0)
 
 func recive_danio(danio: float):
 	salud -= (danio / 10)
 	actualizar_valores("salud", salud)
+	if salud == 0:
+		Eventos.emit_signal("muere_player")
 
 func actualizar_valores(propiedad, valor):
 	if propiedad == "salud" or propiedad =="todo":
@@ -38,6 +41,10 @@ func actualizar_valores(propiedad, valor):
 		Eventos.emit_signal("valores_player", "fuerza", fuerza)
 
 func _unhandled_input(event: InputEvent) -> void:
+	#reinicio del personaje (suicidio y resucitación)
+	if event.is_action_pressed("reinicio"):
+		Eventos.emit_signal("muere_player")
+	
 	#enciende la luz
 	if event.is_action_pressed("ui_cancel"):
 		Eventos.emit_signal("luz")
@@ -76,7 +83,7 @@ func _physics_process(delta):
 	decide_animation()
 	#limite muerte caida
 	if position.y >=700:
-		get_tree().reload_current_scene()
+		Eventos.emit_signal("muere_player")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -166,3 +173,6 @@ func f_Comer_Recoger():
 	Eventos.emit_signal("valores_player", "mochila", mochila)
 	Eventos.comer_recoger.emit(comer_recoger)
 	print (mochila)
+
+func muerte():
+	get_tree().reload_current_scene()

@@ -1,9 +1,9 @@
 extends Timer
 
-@export var hora: float = 19.0
+@export var hora: float = 7.0
 @export var dia: int = 1
 @export var velocidad_reloj: float = 2
-@export var delta_tiempo: float = 0.5
+@export var delta_tiempo: float = 0.2
 
 func _ready():
 	self.wait_time = velocidad_reloj
