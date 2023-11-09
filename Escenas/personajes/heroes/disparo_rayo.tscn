@@ -47,6 +47,8 @@ position = Vector2(289, 162)
 script = ExtResource("1_4of4h")
 
 [node name="bala" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 29
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bala"]
 modulate = Color(1, 1, 0, 1)

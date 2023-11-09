@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #Enum de la acciones que reliza este enemigo
 @export var acccion := Acciones.Patrullar
-enum Acciones { Patrullar, Atacar, muerto}
+enum Acciones { Patrullar, Atacar, muerto, Morder}
 var estado: int = Acciones.Patrullar
 var posicion_heroe: float = 0.0
 
@@ -41,9 +41,10 @@ func _physics_process(delta):
 			$RayPiso.position.x *= -1
 			$Animaciones.flip_h = not $Animaciones.flip_h
 	elif estado == Acciones.Atacar:
-		if $RayParedes.is_colliding():
-			morder()
 		atacar()
+	elif estado == Acciones.Morder:
+		morder()
+		
 	move_and_slide()
 
 func morder():
@@ -98,11 +99,25 @@ func _on_area_cuerpo_area_entered(area):
 		velocity.x = 0
 		$Animaciones.play("muerte")
 		self.set_collision_layer_value(1, false)
+		$radar.set_collision_mask_value(2,false)
 
 func _on_animaciones_animation_finished():
 	if $Animaciones.animation == "muerte":
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "scale", Vector2(0,0),Tiempo.velocidad_reloj / 
-			Tiempo.delta_tiempo * 5)
-		Eventos.emit_signal("muere_perro", self.global_position)
+			Tiempo.delta_tiempo * 2)
+		Eventos.emit_signal("muere_perro", self.global_position )
 		tween.tween_callback(queue_free)
+
+
+func _on_area_cuerpo_body_entered(body):
+	if body.name == "Heroe" and estado != Acciones.muerto:
+		estado = Acciones.Morder
+		morder()
+		
+
+
+func _on_area_cuerpo_body_exited(body):
+	if body.name == "Heroe" and estado != Acciones.muerto:
+		player = body
+		estado = Acciones.Atacar

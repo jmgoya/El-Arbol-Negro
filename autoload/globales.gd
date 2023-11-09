@@ -4,6 +4,6 @@ extends Node
 var plataformas_tscn = [
 	"res://estructuras/plataformas/plataforma_2d.tscn", 743,
 	"res://estructuras/plataformas/pozo_2d.tscn", 510,
-	"res://estructuras/plataformas/pozo_2d.tscn", 510,
+	"res://estructuras/plataformas/escalera.tscn", 712,
 	"res://estructuras/plataformas/escalera.tscn", 712
 ]

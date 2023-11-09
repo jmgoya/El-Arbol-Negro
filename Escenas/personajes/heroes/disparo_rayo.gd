@@ -13,8 +13,6 @@ func _physics_process(delta):
 	velocity =  Vector2(velocidad * direccion,0)
 	move_and_slide()
 
-
-
 func _on_bala_body_entered(body):
 	#choca y desaparece
 	queue_free()

@@ -11,8 +11,10 @@ script = ExtResource("1_bl832")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("4_mystx")]
+offset_left = -28.0
 offset_top = 8.0
-offset_bottom = -8.0
+offset_right = -28.0
+offset_bottom = 8.0
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_rvdlh")]
 

@@ -13,5 +13,5 @@ func leer_juego():
 	pass
 
 func _notification(what):
-	print (what)
+#	print (what)
 	

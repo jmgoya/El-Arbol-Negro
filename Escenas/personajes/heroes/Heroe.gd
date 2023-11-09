@@ -172,7 +172,7 @@ func f_Comer_Recoger():
 	mochila[comer_recoger.tipo ] = mochila[comer_recoger.tipo ] + comer_recoger.intensidad
 	Eventos.emit_signal("valores_player", "mochila", mochila)
 	Eventos.comer_recoger.emit(comer_recoger)
-	print (mochila)
+#	print (mochila)
 
 func muerte():
 	get_tree().reload_current_scene()

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://1ug50v5vfama"]
+
+[ext_resource type="Texture2D" uid="uid://dxg2e2vpar840" path="res://recursos/assets_top/PNG/Assets_separately/Trees_texture_shadow/Christmas_tree3.png" id="1_y56w5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osukx"]
+texture = ExtResource("1_y56w5")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -4, 0, -8, 8, 8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 4, -4, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 0, 8, -4, 4, -8, -8, 8, -8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 4, 4, -4, 8, -8, 8, -8, -8)
+
+[sub_resource type="TileSet" id="TileSet_1yum3"]
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 5
+sources/0 = SubResource("TileSetAtlasSource_osukx")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vmpu3"]
+vertices = PackedVector2Array(15.0354, 17.6817, 95, -85, 129, -1, 107, 90, 14, 27, -1, 123, 5, 32, -105, 85, -12, 31, 14, 8, 1, -102, 6, 0, -14, 20, -132, -1, -83, -86, -14, 8, -6, 0)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(1, 0, 9), PackedInt32Array(10, 1, 9, 11), PackedInt32Array(12, 8, 7, 13, 14), PackedInt32Array(15, 12, 14), PackedInt32Array(15, 14, 10, 16), PackedInt32Array(16, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-83, -86, 1, -102, 95, -85, 129, -1, 107, 90, -1, 123, -105, 85, -132, -1), PackedVector2Array(-14, 8, -6, 0, 6, 0, 14, 8, 15.0354, 17.6817, 14, 27, 5, 32, -12, 31, -14, 20)])
+
+[node name="Nido" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1yum3")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 0, 0, 131071, 0, 1, 0, 65536, 0, 65536, 65536, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_vmpu3")

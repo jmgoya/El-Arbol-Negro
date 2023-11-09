@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://dddrc0xv1we4i"]
+
+[ext_resource type="Script" path="res://ejernodo.gd" id="1_sje71"]
+[ext_resource type="PackedScene" uid="uid://bl1filvev4rts" path="res://ejereplayer.tscn" id="1_xsdk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8ctf"]
+radius = 29.4109
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qrxn3"]
+vertices = PackedVector2Array(602, -331, 575, 322, -619, 344, -657, -327)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(602, -331, 575, 322, -619, 344, -657, -327)])
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sje71")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("1_xsdk7")]
+position = Vector2(514, 147)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(38, -25)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(88, -105)
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(172, 93)
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 139)
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-177, 15)
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-157, -88)
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(175, -84)
+rotation = -0.893074
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(207, 11)
+rotation = -0.893074
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(86, 160)
+rotation = -0.893074
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-99, 94)
+rotation = -0.893074
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-41, -125)
+rotation = -0.893074
+shape = SubResource("CircleShape2D_k8ctf")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Area2D"]
+modulate = Color(1, 0.235294, 1, 1)
+position = Vector2(-38, 25)
+navigation_polygon = SubResource("NavigationPolygon_qrxn3")

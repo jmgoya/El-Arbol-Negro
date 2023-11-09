@@ -56,9 +56,13 @@ reinicio={
 
 [layer_names]
 
+2d_render/layer_7="Hongos"
 2d_physics/layer_2="Heroe"
 2d_physics/layer_3="aves"
 2d_physics/layer_4="lobos"
+2d_physics/layer_5="balas"
+2d_physics/layer_6="nido"
+2d_physics/layer_7="Hongos"
 
 [rendering]
 

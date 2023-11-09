@@ -3,6 +3,7 @@ extends Node2D
 @export var largo: int = 4
 @export var cantidad_enemigos: int = 35
 @export var cantidad_plataformas: = 10
+@export var buitres: int = 4
 
 var hongo_scn = load("res://Escenas/paisaje/hongos/hongo.tscn")
 
@@ -12,6 +13,7 @@ func _ready():
 	cargar_suelo(largo)
 	cargar_enemigos(cantidad_enemigos)
 	cargar_plataformas(cantidad_plataformas)
+	cargar_buitres (buitres)
 
 func cambio_cielo(dia, hora, cielo):
 	var tween = create_tween()
@@ -45,8 +47,6 @@ func cargar_enemigos(cantidad):
 	for lobo_nuevo in $Enemigos.get_children():
 		var maximo = (2300 * largo)
 		lobo_nuevo.global_position.x =  randi_range(500, maximo)
-		#((largo * 2200 ) / cantidad_enemigos) * (
-		#		randi_range (0, int ($Enemigos.get_child_count() ))) 
 
 func cargar_plataformas(cantidad):
 	var posicion: int = 500
@@ -71,3 +71,21 @@ func cargar_plataformas(cantidad):
 			plataforma_nueva.global_position = Vector2(posicion, -300)
 			
 		posicion = posicion + Globales.plataformas_tscn[orden - 1]
+
+func cargar_buitres (buitres):
+#	print (buitres)
+	var pos_nido = 800
+	var nido_nuevo_scn = load ("res://Escenas/paisaje/nido.tscn")
+	var buitre_scn = load("res://Escenas/personajes/enemigos/buitre.tscn")
+	var nido_nuevo
+	var buitre_nuevo
+	for i in buitres:
+		nido_nuevo = nido_nuevo_scn.instantiate()
+		buitre_nuevo = buitre_scn.instantiate()
+		$Enemigos/Nidos.add_child(buitre_nuevo)
+		$Enemigos/Nidos.add_child(nido_nuevo)
+		pos_nido = randi() %1000 + pos_nido +800
+		nido_nuevo.global_position = Vector2(pos_nido, 185)
+		buitre_nuevo.global_position = Vector2(pos_nido, 185 - 10)
+
+	

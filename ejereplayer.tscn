@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl1filvev4rts"]
+
+[ext_resource type="Script" path="res://ejereplayer.gd" id="1_5heve"]
+[ext_resource type="Texture2D" uid="uid://0ohdrrr4xldd" path="res://recursos/3 Objects/Boxes/2.png" id="2_5lvqu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0jus"]
+radius = 14.1421
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_5heve")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("2_5lvqu")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_layers = 2
+avoidance_mask = 2
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i0jus")

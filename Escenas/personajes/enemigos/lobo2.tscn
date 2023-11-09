@@ -100,6 +100,7 @@ height = 46.0
 
 [node name="Lobo2" type="CharacterBody2D"]
 collision_layer = 8
+collision_mask = 17
 script = ExtResource("1_vkhrk")
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="."]
@@ -125,15 +126,19 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_nawff")
 
 [node name="RayParedes" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -13)
 target_position = Vector2(33, 0)
 collision_mask = 3
 
 [node name="RayPiso" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(27, -11)
 target_position = Vector2(0, 15)
 
 [node name="AreaCuerpo" type="Area2D" parent="."]
+visible = false
+collision_mask = 19
 
 [node name="CollisionCuerpo" type="CollisionShape2D" parent="AreaCuerpo"]
 position = Vector2(0, -15)
@@ -144,3 +149,5 @@ shape = SubResource("CapsuleShape2D_756v6")
 [connection signal="body_entered" from="radar" to="." method="_on_radar_body_entered"]
 [connection signal="body_exited" from="radar" to="." method="_on_radar_body_exited"]
 [connection signal="area_entered" from="AreaCuerpo" to="." method="_on_area_cuerpo_area_entered"]
+[connection signal="body_entered" from="AreaCuerpo" to="." method="_on_area_cuerpo_body_entered"]
+[connection signal="body_exited" from="AreaCuerpo" to="." method="_on_area_cuerpo_body_exited"]

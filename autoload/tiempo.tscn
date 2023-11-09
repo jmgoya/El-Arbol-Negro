@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcmwh16y7cfhg"]
 
-[ext_resource type="Script" path="res://tiempo.gd" id="1_2wvd4"]
+[ext_resource type="Script" path="res://autoload/tiempo.gd" id="1_a6s1d"]
 
 [node name="tiempo" type="Timer"]
 wait_time = 3.0
 autostart = true
-script = ExtResource("1_2wvd4")
+script = ExtResource("1_a6s1d")
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]
